@@ -1,0 +1,179 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 33rem;
+  align-items: center;
+  overflow: hidden;
+  background-color: #338ec1;
+  background-image: url('/img/bg3.avif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 75, 109, 0.18), rgba(12, 51, 78, 0.38));
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.heroTitle {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(4rem, 9vw, 6rem);
+  line-height: 1;
+  text-shadow: 0 3px 18px rgba(0, 38, 62, 0.26);
+}
+
+.heroSubtitle {
+  margin: 1rem 0 0;
+  color: #fff;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-weight: 500;
+  text-shadow: 0 2px 12px rgba(0, 38, 62, 0.32);
+}
+
+.heroActions,
+.introductionActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.features {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  row-gap: 3.5rem;
+}
+
+.feature {
+  grid-column: span 2;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.feature:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.featureIcon {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  object-fit: contain;
+}
+
+.featureTitle {
+  margin-bottom: 0.75rem;
+  font-size: 1.45rem;
+}
+
+.feature p {
+  max-width: 27rem;
+  margin: 0 auto;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.75;
+}
+
+.introduction {
+  padding: 3rem 0;
+  background: #2b3137;
+  color: #fff;
+}
+
+.introductionInner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.introductionTitle {
+  max-width: 68rem;
+  margin: 0 auto;
+  color: #fff;
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  line-height: 1.18;
+}
+
+.introductionTitle strong {
+  color: #43b8d7;
+}
+
+.introductionText {
+  max-width: 52rem;
+  margin: 1.5rem auto 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 996px) {
+  .hero {
+    min-height: 29rem;
+  }
+
+  .feature {
+    grid-column: span 3;
+  }
+
+  .feature:nth-child(4) {
+    grid-column: span 3;
+  }
+
+  .feature:last-child {
+    grid-column: 2 / span 4;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 26rem;
+  }
+
+  .heroInner {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .features {
+    padding-top: 3rem;
+  }
+
+  .featureGrid {
+    display: block;
+  }
+
+  .feature {
+    margin-bottom: 3.25rem;
+    padding: 0;
+  }
+
+  .feature:last-child {
+    margin-bottom: 0;
+  }
+
+  .featureIcon {
+    width: 132px;
+    height: 132px;
+  }
+
+  .introduction {
+    padding: 2.5rem 0;
+  }
+}

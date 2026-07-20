@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.安装": {
+    "message": "Installation",
+    "description": "The label for category '安装' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.系统维护": {
+    "message": "System maintenance",
+    "description": "The label for category '系统维护' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.软件与仓库": {
+    "message": "Packages and repositories",
+    "description": "The label for category '软件与仓库' in sidebar 'docs'"
+  }
+}

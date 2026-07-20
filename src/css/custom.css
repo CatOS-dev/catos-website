@@ -1,0 +1,51 @@
+:root {
+  --ifm-color-primary: #338ec1;
+  --ifm-color-primary-dark: #2e80ae;
+  --ifm-color-primary-darker: #2b79a4;
+  --ifm-color-primary-darkest: #236487;
+  --ifm-color-primary-light: #4899c8;
+  --ifm-color-primary-lighter: #55a0cc;
+  --ifm-color-primary-lightest: #78b4d7;
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-height: 3.75rem;
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #43b8d7;
+  --ifm-color-primary-dark: #2fafd1;
+  --ifm-color-primary-darker: #2ca5c5;
+  --ifm-color-primary-darkest: #2488a3;
+  --ifm-color-primary-light: #59c1dc;
+  --ifm-color-primary-lighter: #66c6df;
+  --ifm-color-primary-lightest: #88d3e7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar__logo {
+  height: 3rem;
+}
+
+.navbar__title {
+  font-size: 25px;
+}
+
+.theme-doc-markdown img {
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

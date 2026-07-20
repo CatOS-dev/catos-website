@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "CatOS News",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "CatOS release, development, and community news",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "Recent posts",
+    "description": "The label for the left sidebar"
+  }
+}
