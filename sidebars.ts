@@ -12,7 +12,12 @@ const sidebars: SidebarsConfig = {
       items: [
         'installation/overview',
         'installation/preparation',
-        'installation/physical-installation',
+        'installation/offline-installation',
+        'installation/online-installation',
+        'installation/partitioning',
+        'installation/boot-and-snapshots',
+        'installation/hardware-drivers',
+        'installation/post-installation',
       ],
     },
     {
