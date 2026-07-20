@@ -10,6 +10,38 @@ CatOS is distributed as an ISO image. The current release is **CatOS 2026.07.19*
 
 After downloading, verify both the filename and the SHA-256 checksum.
 
+## Choosing the correct image
+
+The main difference is the NVIDIA driver and boot environment. Choose based on the discrete GPU actually installed in the machine. On a hybrid-graphics laptop, the presence of an Intel or AMD integrated GPU does not change the choice: use the NVIDIA GPU model to decide.
+
+| Graphics hardware | Recommended image | Notes |
+| --- | --- | --- |
+| Intel or AMD graphics only, with no NVIDIA GPU | **Standard image** | No NVIDIA-specific boot or driver setup is required. |
+| GeForce GTX 10 Series or older | **Standard image** | These cards predate the GTX 16 Series and are outside the modern NVIDIA range targeted by the NVIDIA image. |
+| GeForce GTX 16, RTX 20, RTX 30, or RTX 40 Series | **NVIDIA image recommended** | GTX 16 and RTX 20 are Turing, RTX 30 is Ampere, and RTX 40 is Ada Lovelace. The standard image can usually still boot to the desktop, but the NVIDIA image is the preferred choice for installation and regular use. |
+| GeForce RTX 50 Series or newer | **NVIDIA image required** | RTX 50 uses the Blackwell architecture and requires the modern NVIDIA driver and boot environment included in the NVIDIA image. |
+
+In brief:
+
+- **No NVIDIA GPU: use the standard image.**
+- **GTX 10 Series or older: use the standard image.**
+- **GTX 16 / RTX 20 through RTX 40: prefer the NVIDIA image; the standard image can usually still reach the desktop.**
+- **RTX 50 or newer: the NVIDIA image is required.**
+
+:::tip If you do not know the GPU model
+
+On an existing Linux system or in a CatOS live environment, run:
+
+```bash
+lspci -k -d ::03xx
+```
+
+On Windows, open Device Manager and inspect Display adapters. On a hybrid-graphics laptop, check both the integrated and discrete GPUs instead of looking only at the GPU currently driving the display.
+
+:::
+
+Driver packages and support status differ between NVIDIA architectures. See the [ArchWiki NVIDIA page](https://wiki.archlinux.org/title/NVIDIA) for the full architecture and driver matrix and troubleshooting guidance.
+
 ## Standard image
 
 Filename:

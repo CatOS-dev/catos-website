@@ -10,6 +10,38 @@ CatOS 以 ISO 镜像文件的方式分发。当前发布版本为 **CatOS 2026.0
 
 下载完成后，请务必核对文件名与 SHA-256 校验值。
 
+## 如何选择镜像
+
+镜像的主要区别是 NVIDIA 显卡驱动和启动环境。请按机器中实际存在的独立显卡型号选择；笔记本即使同时带有 Intel 或 AMD 核显，只要还带有 NVIDIA 独立显卡，也应按 NVIDIA 独显型号判断。
+
+| 显卡情况 | 建议镜像 | 说明 |
+| --- | --- | --- |
+| 仅 Intel、AMD 显卡，或没有 NVIDIA 显卡 | **普通版** | 不需要 NVIDIA 专用启动和驱动配置。 |
+| GeForce GTX 10 系列及更早型号 | **普通版** | 这些显卡早于 GTX 16 系列，不属于 NVIDIA 版主要面向的现代显卡范围。 |
+| GeForce GTX 16、RTX 20、RTX 30、RTX 40 系列 | **建议 NVIDIA 版** | GTX 16 与 RTX 20 属于 Turing，RTX 30 属于 Ampere，RTX 40 属于 Ada Lovelace。普通版通常也能够启动并进入桌面，但 NVIDIA 版更适合作为安装和日常使用的首选。 |
+| GeForce RTX 50 系列及更新型号 | **必须使用 NVIDIA 版** | RTX 50 使用 Blackwell 架构，需要 NVIDIA 版提供的现代 NVIDIA 驱动和启动环境。 |
+
+简化判断：
+
+- **没有 NVIDIA 显卡：选择普通版。**
+- **GTX 10 系列及更早：选择普通版。**
+- **GTX 16 / RTX 20 到 RTX 40：优先选择 NVIDIA 版；普通版一般也能进入桌面。**
+- **RTX 50 及更新型号：必须选择 NVIDIA 版。**
+
+:::tip 不确定显卡型号时
+
+在已有 Linux 系统或 CatOS Live 环境中，可以执行：
+
+```bash
+lspci -k -d ::03xx
+```
+
+在 Windows 中可打开“设备管理器”并查看“显示适配器”。混合显卡笔记本需要同时检查核显和独立显卡，不要只根据当前负责输出画面的显卡判断。
+
+:::
+
+NVIDIA 在不同架构上使用的驱动包和支持状态并不完全相同。更完整的分代、驱动选择与故障排查说明请参考 [ArchWiki：NVIDIA](https://wiki.archlinux.org/title/NVIDIA)。
+
 ## 普通版
 
 文件名：
