@@ -1,46 +1,68 @@
 ---
-sidebar_position: 2
-title: 下载 CatOS
-description: 获取 CatOS 镜像并在安装前验证文件。
+sidebar_position: 3
+title: 下载
+description: 下载 CatOS 2026.07.19 系统镜像并核对 SHA-256 校验值。
 ---
 
-# 下载 CatOS
+# 下载
 
-正式镜像应从 CatOS-dev 组织公布的发布渠道获取。新网站正在整理发布流程，因此这里暂不伪造不存在的镜像版本或下载地址。
+CatOS 以 ISO 镜像文件的方式分发。当前发布版本为 **CatOS 2026.07.19**，提供普通版和 NVIDIA 版两个镜像。
 
-## 发布渠道
+下载完成后，请务必核对文件名与 SHA-256 校验值。
 
-当前可先关注：
+## 普通版
 
-- [CatOS-dev GitHub 组织](https://github.com/CatOS-dev)
-- [CatOS 开发动态](/news)
+文件名：
 
-正式开放下载后，本页会列出：
-
-- ISO 文件；
-- SHA-256 校验值；
-- 签名文件和签名公钥；
-- 发布说明；
-- 已知问题与最低硬件要求。
-
-## 下载后必须验证
-
-拿到正式镜像后，至少验证 SHA-256：
-
-```bash
-sha256sum CatOS-*.iso
+```text
+catos-2026.07.19-x86_64.iso
 ```
 
-输出应与发布页面给出的校验值完全一致。签名验证命令会与首个正式发布一同提供。
+SHA-256：
 
-:::warning 不要使用来源不明的镜像
+```text
+5543f37bbe0c96eee1753a99012d9d5cb56e007ee0ab5aada1883ae4d1553b16
+```
 
-第三方网盘或聊天群中的镜像可能已经损坏或被替换。无法与正式校验值对应的文件不应继续安装。
+下载地址：
 
-:::
+- [OneDrive](https://sym2005-my.sharepoint.com/:u:/g/personal/symwww_sym2005_onmicrosoft_com/IQAA2n9PY2WhSbLlW678lh3dAXeqAQpvMrU_QMbE_WoRmb0?e=JdcvL1)
+- [123云盘](https://1690957.share.123pan.cn/123pan/2LH9-kzQEv)
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-2026.07.19-x86_64.iso)
 
-## 制作安装介质
+## NVIDIA 版
 
-推荐使用能够按镜像模式写入 ISO 的工具。写入会清空目标设备，请在操作前确认设备路径和已有数据。
+文件名：
 
-安装前请继续阅读[安装概览](./installation/overview.md)。
+```text
+catos-for-nvidia-2026.07.19-x86_64.iso
+```
+
+SHA-256：
+
+```text
+a1d2808c43e33054d6d2099c91c076a8d44c3d90aefc3f8bfa2845b1ec1d38e7
+```
+
+下载地址：
+
+- [OneDrive](https://sym2005-my.sharepoint.com/:u:/g/personal/symwww_sym2005_onmicrosoft_com/IQBzeP0HJsmEQZgzn9fFwhEJATrTUjGVpXgnA-2E3-_VFZ8?e=mbVfiS)
+- [123云盘](https://1690957.share.123pan.cn/123pan/2LH9-EzQEv)
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-for-nvidia-2026.07.19-x86_64.iso)
+
+## 校验镜像
+
+Linux 下可使用：
+
+```bash
+sha256sum catos-2026.07.19-x86_64.iso
+sha256sum catos-for-nvidia-2026.07.19-x86_64.iso
+```
+
+命令输出必须与本页列出的 SHA-256 完全一致。校验失败时不要继续安装，请重新下载镜像。
+
+## 获取帮助
+
+安装前请阅读[安装前准备](./installation/preparation.md)。如需获取测试镜像或反馈问题，可加入 CatOS 官方 QQ 群（群号：`428382413`）。
+
+![CatOS QQ群二维码](/img/qrcode_catos2.jpg)

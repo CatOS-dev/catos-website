@@ -5,8 +5,8 @@ CatOS 的官方网站与文档源码。项目使用 Docusaurus、React 和 TypeS
 ## 本地开发
 
 ```bash
-npm install
-npm start
+pnpm install
+pnpm start
 ```
 
 默认开发地址为 `http://localhost:3000/`。
@@ -14,9 +14,8 @@ npm start
 ## 验证
 
 ```bash
-npm test
-npm run typecheck
-npm run build
+pnpm typecheck
+pnpm build
 ```
 
 生产构建输出到 `build/`，并同时生成：
