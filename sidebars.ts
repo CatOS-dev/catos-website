@@ -4,6 +4,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     'intro',
     'why',
+    'desktops',
     'download',
     {
       type: 'category',
