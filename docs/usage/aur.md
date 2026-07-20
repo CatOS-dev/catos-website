@@ -1,49 +1,87 @@
 ---
-title: 安装卸载软件(AUR)
-sidebar_position: 3
+title: 使用 AUR
+sidebar_position: 5
 ---
 
-# 安装卸载软件(AUR)
+# 使用 AUR
 
-Arch用户软件仓库（Arch User Repository，AUR）是由社区维护的软件仓库。AUR通过分享PKGBUILD扩展Arch Linux的软件生态，许多未进入官方仓库的软件都可以在AUR中找到。
+Arch User Repository（AUR）保存用户贡献的 `PKGBUILD`。它不是二进制软件仓库，AUR 助手通常会下载构建脚本、获取源码，并在本机生成 Arch 软件包。
 
-旧版CatOS内置AUR助手`yay`，用于搜索、安装和卸载AUR软件。
-
-:::warning
-
-AUR软件包由用户维护，使用前应检查PKGBUILD和来源，风险由使用者自行承担。
-
-:::
+CatOS 镜像包含 `yay` 和 `paru`。两者作用相近，选择其中一个长期使用即可，不需要在同一次操作中交替运行。
 
 ## 搜索软件
 
 ```bash
-yay -Ss pkg_name
+yay -Ss keyword
 ```
 
-![yay搜索AUR软件](/img/docs/aur_search.jpg)
-
-## 安装软件
+或：
 
 ```bash
-yay -S pkg_name
+paru -Ss keyword
+```
+
+## 安装 AUR 软件
+
+```bash
+yay -S package_name
+```
+
+或：
+
+```bash
+paru -S package_name
+```
+
+AUR 助手不应以 root 身份运行。它只会在需要通过 pacman 安装依赖或最终软件包时请求 sudo。
+
+## 安装前检查什么
+
+至少检查：
+
+- `PKGBUILD` 和相关安装脚本；
+- `source` 指向的上游地址；
+- 是否执行未知的预编译二进制；
+- 最近维护时间和评论中的已知问题；
+- 包名是否会覆盖官方仓库或 CatOS 包；
+- 是否需要导入额外签名密钥。
+
+:::warning
+
+AUR 内容由社区用户维护，不经过 Arch Linux 或 CatOS 官方仓库的同一套审核和构建流程。使用 AUR 等于信任对应维护者和构建脚本。
+
+:::
+
+## 更新 AUR 软件
+
+```bash
+yay -Syu
+```
+
+或：
+
+```bash
+paru -Syu
+```
+
+更新前仍应阅读将要重建的 AUR 包变更。涉及内核、DKMS、显卡驱动或启动组件时，更新后应检查模块和启动状态。
+
+## 只下载并检查构建文件
+
+```bash
+yay -G package_name
+```
+
+然后进入目录检查 `PKGBUILD`，再手动构建：
+
+```bash
+makepkg -si
 ```
 
 ## 卸载软件
 
 ```bash
-yay -R pkg_name
+sudo pacman -Rns package_name
 ```
 
-同时清理不再需要的依赖：
-
-```bash
-yay -Rs pkg_name
-```
-
-## 查询软件
-
-```bash
-yay -Qs
-yay -Qs pkg_name
-```
+AUR 软件安装后仍然是标准 pacman 软件包，因此卸载和查询应使用 pacman。

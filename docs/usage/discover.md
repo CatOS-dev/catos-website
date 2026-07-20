@@ -1,32 +1,50 @@
 ---
-title: 安装卸载软件(Discover商店)
-sidebar_position: 2
+title: 使用 Discover 软件商店
+sidebar_position: 4
 ---
 
-# 安装卸载软件(Discover商店)
+# 使用 Discover 软件商店
 
-除了使用pacman管理软件，旧版CatOS还可以使用Discover软件商店搜索、安装和卸载软件。
+KDE Plasma 预设提供 Discover，用图形界面搜索、安装、卸载和更新软件。Discover 是包管理前端，底层仍然使用系统的软件包服务和仓库。
 
-## 搜索软件
+## 搜索和安装
 
-在应用菜单中打开Discover，在左上角搜索框输入关键词。
+1. 从应用菜单打开 Discover；
+2. 在搜索框输入软件名称；
+3. 打开详情页，确认来源、版本和权限；
+4. 点击“安装”。
 
 ![Discover搜索软件](/img/docs/discover_search.jpg)
 
-## 安装软件
-
-在软件详情页点击右上角的“安装”。
-
 ![Discover安装软件](/img/docs/discover_install.jpg)
 
-## 查询已安装软件
+## 查看和卸载软件
 
-在“已安装的软件包”中查看系统已经安装的软件。
+在“已安装”页面查看系统中的应用，进入详情页后点击“移除”。
 
 ![Discover查询软件](/img/docs/discover_query.jpg)
 
-## 卸载软件
-
-在已安装软件列表中进入对应详情页，点击右上角的“移除”。
-
 ![Discover卸载软件](/img/docs/discover_remove.jpg)
+
+## 更新系统
+
+Discover 可以显示仓库更新，但更新期间不要同时运行：
+
+```text
+pacman
+yay
+paru
+另一个 Discover 更新任务
+```
+
+多个前端同时修改 pacman 数据库会互相阻塞。
+
+## Discover 找不到软件
+
+先在终端确认仓库中是否存在：
+
+```bash
+pacman -Ss keyword
+```
+
+Discover 主要展示带有 AppStream 元数据的图形应用，并不一定显示仓库中的所有命令行包。AUR 软件也不应默认被当作官方仓库软件处理，请参考[使用 AUR](./aur.md)。

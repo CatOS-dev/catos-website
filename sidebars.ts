@@ -24,6 +24,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '使用',
       items: [
+        'usage/display-protocols',
+        'usage/input-method',
         'usage/pacman',
         'usage/discover',
         'usage/aur',
@@ -34,7 +36,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '系统维护',
-      items: ['system/snapshots'],
+      items: ['system/maintenance', 'system/snapshots'],
     },
     {
       type: 'category',
