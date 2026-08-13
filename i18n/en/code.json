@@ -327,7 +327,7 @@
     "description": "The title of the tag list page"
   },
   "home.hero.subtitle": {
-    "message": "Ready-to-use Arch-based distribution"
+    "message": "Ready-to-use, rolling Arch-based distribution"
   },
   "home.hero.download": {
     "message": "Download now ↓"
@@ -387,10 +387,10 @@
     "message": "ready-to-use"
   },
   "home.introduction.suffix": {
-    "message": " Linux distribution delivering a complete, clear, and recoverable desktop experience"
+    "message": " and continuously rolling Linux distribution delivering a complete, clear, and recoverable desktop experience"
   },
   "home.introduction.description": {
-    "message": "CatOS organizes the installer, desktop presets, package repository, Btrfs snapshots, and boot flow so they work together as one distribution."
+    "message": "CatOS uses installation media for deployment, then continues updating through the Arch Linux and CatOS repositories while maintaining the installer, desktop presets, Btrfs snapshots, and boot flow as one distribution."
   },
   "home.introduction.download": {
     "message": "Download now"

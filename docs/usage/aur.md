@@ -1,58 +1,69 @@
 ---
 title: 使用 AUR
 sidebar_position: 5
+description: 在 CatOS 上安全地使用 yay 或 paru 构建、更新和维护 AUR 软件包。
 ---
 
 # 使用 AUR
 
-Arch User Repository（AUR）保存用户贡献的 `PKGBUILD`。它不是二进制软件仓库，AUR 助手通常会下载构建脚本、获取源码，并在本机生成 Arch 软件包。
+Arch User Repository（AUR）保存社区用户贡献的 `PKGBUILD` 和相关构建文件。AUR 本身**不是二进制软件仓库**：AUR 助手会下载构建脚本与源码，在本机执行构建，然后把生成的标准 Arch 软件包交给 Pacman 安装。
 
-CatOS 镜像包含 `yay` 和 `paru`。两者作用相近，选择其中一个长期使用即可，不需要在同一次操作中交替运行。
+CatOS 默认环境提供 `yay` 和 `paru`。两者功能重叠，选择一个长期使用即可，不需要在同一次维护过程中交替运行。
 
-## 搜索软件
+## 搜索与安装
+
+使用 yay：
 
 ```bash
 yay -Ss keyword
-```
-
-或：
-
-```bash
-paru -Ss keyword
-```
-
-## 安装 AUR 软件
-
-```bash
 yay -S package_name
 ```
 
-或：
+或使用 paru：
 
 ```bash
+paru -Ss keyword
 paru -S package_name
 ```
 
-AUR 助手不应以 root 身份运行。它只会在需要通过 pacman 安装依赖或最终软件包时请求 sudo。
+AUR 助手不应以 root 身份启动。构建过程应由普通用户执行，只在通过 Pacman 安装依赖和最终软件包时请求 sudo。
 
-## 安装前检查什么
+## 安装前必须检查什么
 
 至少检查：
 
-- `PKGBUILD` 和相关安装脚本；
+- `PKGBUILD` 和 `.install` 等相关脚本；
 - `source` 指向的上游地址；
-- 是否执行未知的预编译二进制；
-- 最近维护时间和评论中的已知问题；
-- 包名是否会覆盖官方仓库或 CatOS 包；
-- 是否需要导入额外签名密钥。
+- 是否下载或执行来源不明的预编译二进制；
+- 最近维护时间、AUR 评论和已知问题；
+- 包名、`provides`、`conflicts` 是否会覆盖 Arch 或 CatOS 仓库包；
+- 是否要求导入额外签名密钥；
+- Git/VCS 包最终会构建哪个提交或标签。
 
-:::warning
+:::warning AUR 的信任边界
 
-AUR 内容由社区用户维护，不经过 Arch Linux 或 CatOS 官方仓库的同一套审核和构建流程。使用 AUR 等于信任对应维护者和构建脚本。
+AUR 内容由社区用户维护，不经过 Arch Linux 或 CatOS 二进制仓库的同一套审核和受控构建流程。确认安装意味着你选择信任对应的构建脚本和上游来源。
 
 :::
 
+## 先下载构建文件再检查
+
+```bash
+yay -G package_name
+cd package_name
+```
+
+阅读 `PKGBUILD` 后，可以手工构建：
+
+```bash
+makepkg -si
+```
+
+如果使用 paru，也可以在安装确认前查看它展示的 PKGBUILD 差异。
+
 ## 更新 AUR 软件
+
+让一个 AUR 助手同时处理仓库和 AUR 更新：
 
 ```bash
 yay -Syu
@@ -64,24 +75,26 @@ yay -Syu
 paru -Syu
 ```
 
-更新前仍应阅读将要重建的 AUR 包变更。涉及内核、DKMS、显卡驱动或启动组件时，更新后应检查模块和启动状态。
+不要在另一个终端同时运行 `pacman -Syu` 或 Discover 更新任务。
 
-## 只下载并检查构建文件
+AUR 包是在本机针对当时的软件库构建的。系统共享库、Python、Electron、内核或其他 ABI 发生较大变化后，某些 AUR 包可能需要重新构建；遇到“软件包仍已安装但程序无法加载库”的情况，应检查它是否属于 AUR/本地构建来源。
 
-```bash
-yay -G package_name
-```
-
-然后进入目录检查 `PKGBUILD`，再手动构建：
+## 找出 AUR 和本地包
 
 ```bash
-makepkg -si
+pacman -Qm
 ```
 
-## 卸载软件
+这个列表表示当前已安装、但不在当前同步仓库中的包，通常包括 AUR 和本地构建软件。它也可能包含后来从仓库移除的包，因此需要结合 `pacman -Qi` 判断来源。
+
+## 卸载
+
+AUR 软件安装完成后仍然是标准 Pacman 软件包：
 
 ```bash
 sudo pacman -Rns package_name
 ```
 
-AUR 软件安装后仍然是标准 pacman 软件包，因此卸载和查询应使用 pacman。
+卸载前阅读最终事务，确认 Pacman 计算出的依赖删除范围符合预期。
+
+完整系统更新与 Catdot、Secure Boot 的后续处理见[更新系统](./update.md)。

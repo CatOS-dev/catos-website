@@ -88,7 +88,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={siteConfig.title}
-      description="CatOS 是一个基于 Arch Linux、开箱即用的桌面 Linux 发行版。">
+      description="CatOS 是一个基于 Arch Linux、滚动更新、开箱即用的桌面 Linux 发行版。">
       <main>
         <header className={styles.hero}>
           <div className={styles.heroOverlay} />
@@ -97,7 +97,7 @@ export default function Home(): ReactNode {
               CatOS
             </Heading>
             <p className={styles.heroSubtitle}>
-              <Translate id="home.hero.subtitle">开箱即用的 Arch 系发行版</Translate>
+              <Translate id="home.hero.subtitle">开箱即用的 Arch 系滚动发行版</Translate>
             </p>
             <div className={styles.heroActions}>
               <Link className="button button--primary button--lg" to="/docs/download">
@@ -117,11 +117,11 @@ export default function Home(): ReactNode {
             <Heading as="h2" className={styles.introductionTitle}>
               <Translate id="home.introduction.prefix">基于 Arch Linux、</Translate>
               <strong><Translate id="home.introduction.highlight">开箱即用</Translate></strong>
-              <Translate id="home.introduction.suffix">的 Linux 发行版，提供完整、清晰并且可恢复的桌面体验</Translate>
+              <Translate id="home.introduction.suffix">并持续滚动更新的 Linux 发行版，提供完整、清晰并且可恢复的桌面体验</Translate>
             </Heading>
             <p className={styles.introductionText}>
               <Translate id="home.introduction.description">
-                CatOS 整理了安装器、桌面预设、软件仓库、Btrfs 快照和启动流程，让这些组件作为同一个发行版协同工作。
+                CatOS 用安装介质完成部署，之后通过 Arch Linux 与 CatOS 软件仓库持续更新；安装器、桌面预设、Btrfs 快照和启动流程作为同一个发行版协同维护。
               </Translate>
             </p>
             <div className={styles.introductionActions}>
