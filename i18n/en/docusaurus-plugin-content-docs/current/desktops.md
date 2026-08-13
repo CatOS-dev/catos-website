@@ -29,12 +29,113 @@ The customization depth is not identical for every option. Some desktops have de
 
 | Choice | Intended use | CatOS customization |
 | --- | --- | --- |
-| **[Niri + DMS](./desktops/niri-dms.md)** | A scrolling tiling Wayland desktop using Dank Material Shell | Uses the dedicated `catos-niri-dms` Catdot Profile for Niri, portals, the GTK baseline, and desktop tools |
-| **[Niri + Noctalia](./desktops/niri-noctalia.md)** | A scrolling tiling Wayland desktop using Noctalia Shell | Uses the dedicated `catos-niri-noctaliav5` Catdot Profile and can use Noctalia Greeter |
+| **Niri + DMS** | A scrolling tiling Wayland desktop using Dank Material Shell | Uses the dedicated `catos-niri-dms` Catdot Profile for Niri, portals, the GTK baseline, and desktop tools |
+| **Niri + Noctalia** | A scrolling tiling Wayland desktop using Noctalia Shell | Uses the dedicated `catos-niri-noctaliav5` Catdot Profile and can use Noctalia Greeter |
 | **Hyprland + DMS** | A dynamic tiling Wayland desktop using Dank Material Shell | Assembled by the installer from Hyprland, DMS, and common desktop components; dedicated customization is still being organized |
 | **Sway** | A stable, keyboard-driven tiling Wayland environment | Uses the dedicated [Sway settings](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile, plus [Waybar settings](https://github.com/CatOS-dev/catos-waybar-settings) |
 | **Labwc** | A lightweight floating Wayland desktop inspired by Openbox | Uses the dedicated [Labwc settings](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile, plus shared Waybar configuration |
 | **Wayfire** | A lightweight floating Wayland environment with desktop effects | Uses the dedicated [Wayfire settings](https://github.com/CatOS-dev/catos-wayfire-settings) Catdot Profile |
+
+### Niri + DMS
+
+Niri manages scrolling-tiling windows and workspaces, while Dank Material Shell (DMS) provides the launcher, settings, notifications, clipboard, lock screen, wallpaper controls, and other shell functions. The current CatOS repository delivers this setup through the `catos-niri-dms` Profile, with [Catdot](./usage/catdot.md) managing distribution-owned user configuration.
+
+Check or reselect the Profile with:
+
+```bash
+catdot current
+catdot select catos-niri-dms
+```
+
+Catdot manages the main Niri configuration, CatOS baseline modules, environment configuration, and portal configuration, including:
+
+```text
+~/.config/niri/config.kdl
+~/.config/niri/catos/
+~/.config/environment.d/80-catos-niri.conf
+~/.config/xdg-desktop-portal/niri-portals.conf
+```
+
+Long-term personal configuration belongs in the one-time seed files created on first Profile activation:
+
+```text
+~/.config/niri/custom/catos-niri-dms/input.kdl
+~/.config/niri/custom/catos-niri-dms/outputs.kdl
+~/.config/niri/custom/catos-niri-dms/rules.kdl
+```
+
+Use them for input devices, displays, and personal window rules respectively. List display names and modes with `niri msg outputs`. Avoid keeping personal changes under `~/.config/niri/catos/`, which is part of the distribution baseline.
+
+Common defaults:
+
+| Action | Niri + DMS |
+| --- | --- |
+| DMS launcher | `Mod` + `Space` |
+| Ghostty | `Mod` + `T` |
+| DMS settings | `Mod` + `,` |
+| Clipboard | `Mod` + `V` |
+| Overview | `Mod` + `O` / `Mod` + `Tab` |
+| Close window | `Mod` + `Q` |
+| Move focus | `Mod` + arrows / `H/J/K/L` |
+| Workspaces | `Mod` + `1`…`9` |
+| Screenshots | `Print` / `Ctrl` + `Print` / `Alt` + `Print` |
+
+Explicitly accept a newer managed Profile revision with:
+
+```bash
+catdot update catos-niri-dms
+```
+
+Catdot backs up managed files before replacement and does not overwrite the seed files. The Profile also configures Niri's XDG Desktop Portal and `xwayland-satellite`; see [Distinguishing Wayland, X11, and XWayland](./usage/display-protocols.md) for screen-sharing or legacy-X11 problems.
+
+### Niri + Noctalia
+
+Niri + Noctalia uses the same Niri window model while Noctalia provides the panel, launcher, control center, notifications, clipboard, theming, and other shell functions. The current CatOS repository delivers it through the `catos-niri-noctaliav5` Profile.
+
+```bash
+catdot current
+catdot select catos-niri-noctaliav5
+```
+
+The currently published Profile manages:
+
+```text
+~/.config/niri/config.kdl
+~/.config/niri/noctalia.kdl
+~/.config/niri/noctalia/
+~/.config/noctalia/config.toml
+~/.config/xdg-desktop-portal/niri-portals.conf
+```
+
+Unlike the DMS Profile, the currently published Noctalia Profile **does not expose `input.kdl`, `outputs.kdl`, and `rules.kdl` as stable user seed interfaces**. Direct edits to managed Niri files may need to be merged manually after a future `catdot update`; Catdot creates a backup before replacement.
+
+Common defaults:
+
+| Action | Niri + Noctalia |
+| --- | --- |
+| Noctalia control center | `Mod` + `S` |
+| Noctalia settings | `Mod` + `,` |
+| Noctalia clipboard | `Mod` + `V` |
+| Window switcher | `Alt` + `Tab` |
+| Kitty | `Mod` + `T` |
+| Niri overview | `Mod` + `O` |
+| Close window | `Mod` + `Q` |
+| Workspaces | `Mod` + `1`…`9` |
+| Niri hotkey overlay | `Mod` + `Shift` + `/` |
+
+Accept a newer Profile revision with:
+
+```bash
+catdot update catos-niri-noctaliav5
+```
+
+If the system uses Noctalia Greeter, it is a login-stage component; the Noctalia shell inside the desktop session is separate. Input-method, screen-sharing, and XWayland problems are covered in [Display protocol troubleshooting](./usage/display-protocols.md).
+
+:::note Rolling-release documentation
+
+The Niri behavior above tracks the **currently published packages in the CatOS repositories**. Later Git commits are not documented as user-visible behavior until they are packaged and published.
+
+:::
 
 ## No Desktop
 

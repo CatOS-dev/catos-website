@@ -29,12 +29,113 @@ CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管�
 
 | 选项 | 定位 | CatOS 定制情况 |
 | --- | --- | --- |
-| **[Niri + DMS](./desktops/niri-dms.md)** | 使用 Dank Material Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-dms` Catdot Profile 管理 Niri、Portal、GTK 基线和桌面工具 |
-| **[Niri + Noctalia](./desktops/niri-noctalia.md)** | 使用 Noctalia Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-noctaliav5` Catdot Profile，并可使用 Noctalia Greeter |
+| **Niri + DMS** | 使用 Dank Material Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-dms` Catdot Profile 管理 Niri、Portal、GTK 基线和桌面工具 |
+| **Niri + Noctalia** | 使用 Noctalia Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-noctaliav5` Catdot Profile，并可使用 Noctalia Greeter |
 | **Hyprland + DMS** | 使用 Dank Material Shell 的动态平铺式 Wayland 桌面 | 由安装器组合 Hyprland、DMS 和通用桌面组件；专用定制仍在持续整理 |
 | **Sway** | 稳定、键盘驱动的平铺式 Wayland 环境 | 使用独立的 [Sway 设置](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile，并使用 [Waybar 设置](https://github.com/CatOS-dev/catos-waybar-settings) |
 | **Labwc** | 受 Openbox 启发的轻量 Wayland 浮动桌面 | 使用独立的 [Labwc 设置](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile，并使用 Waybar 通用配置 |
 | **Wayfire** | 带有适度桌面特效的轻量 Wayland 浮动环境 | 使用独立的 [Wayfire 设置](https://github.com/CatOS-dev/catos-wayfire-settings) Catdot Profile |
+
+### Niri + DMS
+
+Niri 负责滚动平铺窗口与工作区，Dank Material Shell（DMS）提供启动器、设置、通知、剪贴板、锁屏、壁纸等桌面 Shell 功能。当前正式仓库通过 `catos-niri-dms` Profile 交付这套配置，并由 [Catdot](./usage/catdot.md) 管理发行版拥有的用户配置。
+
+确认或重新选择 Profile：
+
+```bash
+catdot current
+catdot select catos-niri-dms
+```
+
+Catdot 会持续管理 Niri 主配置、CatOS 基线、环境变量和 Portal，例如：
+
+```text
+~/.config/niri/config.kdl
+~/.config/niri/catos/
+~/.config/environment.d/80-catos-niri.conf
+~/.config/xdg-desktop-portal/niri-portals.conf
+```
+
+长期个人配置应写进 Profile 首次激活时生成、之后不会被 Catdot 覆盖的 seed 文件：
+
+```text
+~/.config/niri/custom/catos-niri-dms/input.kdl
+~/.config/niri/custom/catos-niri-dms/outputs.kdl
+~/.config/niri/custom/catos-niri-dms/rules.kdl
+```
+
+分别用于输入设备、显示器和窗口规则。显示器名称和可用模式可用 `niri msg outputs` 查看。不要把长期个人修改写进 `~/.config/niri/catos/`，那部分属于发行版基线。
+
+常用默认快捷键：
+
+| 操作 | Niri + DMS |
+| --- | --- |
+| DMS 应用启动器 | `Mod` + `Space` |
+| Ghostty | `Mod` + `T` |
+| DMS 设置 | `Mod` + `,` |
+| 剪贴板 | `Mod` + `V` |
+| Overview | `Mod` + `O` / `Mod` + `Tab` |
+| 关闭窗口 | `Mod` + `Q` |
+| 切换焦点 | `Mod` + 方向键 / `H/J/K/L` |
+| 工作区 | `Mod` + `1`…`9` |
+| 截图 | `Print` / `Ctrl` + `Print` / `Alt` + `Print` |
+
+接受新版 managed 配置时显式运行：
+
+```bash
+catdot update catos-niri-dms
+```
+
+Catdot 会先备份 managed 文件，seed 文件不会被重新覆盖。Profile 同时配置 Niri 的 XDG Desktop Portal 和 `xwayland-satellite`；屏幕共享或旧 X11 应用异常时可参阅[分辨 Wayland、X11 与 XWayland](./usage/display-protocols.md)。
+
+### Niri + Noctalia
+
+Niri + Noctalia 使用相同的 Niri 窗口管理模型，由 Noctalia 提供面板、启动器、控制中心、通知、剪贴板和主题等 Shell 功能。当前正式仓库通过 `catos-niri-noctaliav5` Profile 交付。
+
+```bash
+catdot current
+catdot select catos-niri-noctaliav5
+```
+
+当前正式发布的 Profile 管理：
+
+```text
+~/.config/niri/config.kdl
+~/.config/niri/noctalia.kdl
+~/.config/niri/noctalia/
+~/.config/noctalia/config.toml
+~/.config/xdg-desktop-portal/niri-portals.conf
+```
+
+与 DMS Profile 不同，当前正式发布的 Noctalia Profile **没有把 `input.kdl`、`outputs.kdl`、`rules.kdl` 暴露为稳定的用户 seed 接口**。直接修改 managed Niri 文件时，应预期以后 `catdot update` 可能需要手工合并；Catdot 会在覆盖前留下备份。
+
+常用默认快捷键：
+
+| 操作 | Niri + Noctalia |
+| --- | --- |
+| Noctalia 控制中心 | `Mod` + `S` |
+| Noctalia 设置 | `Mod` + `,` |
+| Noctalia 剪贴板 | `Mod` + `V` |
+| 窗口切换 | `Alt` + `Tab` |
+| Kitty | `Mod` + `T` |
+| Niri Overview | `Mod` + `O` |
+| 关闭窗口 | `Mod` + `Q` |
+| 工作区 | `Mod` + `1`…`9` |
+| Niri 热键帮助 | `Mod` + `Shift` + `/` |
+
+接受新版 Profile 配置：
+
+```bash
+catdot update catos-niri-noctaliav5
+```
+
+如果系统使用 Noctalia Greeter，它属于登录阶段组件；桌面内的 Noctalia Shell 是独立的用户会话组件。输入法、屏幕共享和 XWayland 问题同样可参阅[显示协议排查](./usage/display-protocols.md)。
+
+:::note 滚动更新文档
+
+以上 Niri 行为以 CatOS 软件仓库**当前正式发布的软件包**为准。Git 仓库中尚未发布的后续提交不会提前作为用户行为写入本文档。
+
+:::
 
 ## No Desktop
 

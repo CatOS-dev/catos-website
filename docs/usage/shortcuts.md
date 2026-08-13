@@ -32,6 +32,6 @@ sidebar_position: 7
 系统设置 → 键盘 → 快捷键
 ```
 
-Niri 方案的 CatOS 默认组合单独记录在 [Niri + DMS](../desktops/niri-dms.md) 和 [Niri + Noctalia](../desktops/niri-noctalia.md) 指南中。其他桌面的配置入口和默认组合见各桌面上游文档。CatOS 提供的全部桌面选项见[桌面环境与窗口管理器](../desktops.md)。
+Niri + DMS 和 Niri + Noctalia 的 CatOS 默认组合已经合并在[桌面环境与窗口管理器](../desktops.md)页面。其他桌面的配置入口和默认组合见各桌面上游文档。
 
 输入法快捷键单独由 Fcitx5 管理，见[使用和排查 Fcitx5](./input-method.md)。

@@ -49,6 +49,62 @@ sudo cat /var/lib/catos-secureboot/enrollment-password
 
 Record the password, reboot, and then complete the machine-certificate enrollment in MokManager.
 
+## First-boot MOK enrollment guide
+
+MokManager runs before the operating system, so it uses the firmware's own display mode. The real QEMU/OVMF screenshots below are **1280×800**; after enrollment the test system returns to the documentation desktop baseline of **1920×1080**. Physical firmware may use another resolution, but the menu text and flow are the same.
+
+If the machine MOK is not trusted yet, shim may first show `Verification failed: (0x1A) Security Violation`. Press **Enter** on the dialog to continue to MokManager.
+
+![Security Violation before first MOK enrollment](/img/docs/secure-boot/mok-security-violation.png)
+
+On the `Shim UEFI key management` countdown screen, press any key to enter MOK management.
+
+### Normal pending-MOK enrollment
+
+The installer submits the machine certificate through `mokutil`. If the MokManager menu contains **Enroll MOK**, select it, then choose **Continue → Yes** and enter the one-time password generated during installation. The password is stored at:
+
+```text
+/var/lib/catos-secureboot/enrollment-password
+```
+
+If you reached MokManager before recording the password, do not guess repeatedly. Continue booting, sign in, and read it with:
+
+```bash
+sudo cat /var/lib/catos-secureboot/enrollment-password
+```
+
+Record it, reboot, and complete the pending `Enroll MOK` request.
+
+### If Enroll MOK is missing: enroll the machine certificate from disk
+
+If MokManager shows only `Continue boot`, `Enroll key from disk`, and `Enroll hash from disk`, the machine certificate already deployed to the ESP can be enrolled manually.
+
+Choose **Enroll key from disk**:
+
+![Enroll key from disk in MokManager](/img/docs/secure-boot/mok-management-menu.png)
+
+Select the **ESP of the installed system**. In the test environment below, the first `PciRoot(...)/HD(...)` entry is the target ESP, while `ARCHISO_EFI` is the still-attached installation image. Do not choose the installer media.
+
+![Selecting the installed-system ESP in MokManager](/img/docs/secure-boot/mok-select-esp.png)
+
+CatOS deploys the certificate as `EFI/CatOS/catos-machine.cer` and also places a convenience copy named `catos-machine.cer` in the ESP root for MokManager. Select **catos-machine.cer**:
+
+![Selecting catos-machine.cer](/img/docs/secure-boot/mok-select-certificate.png)
+
+MokManager then displays the `Enroll MOK` page. **View key 0** can be used to inspect the certificate; choose **Continue** once it is confirmed:
+
+![Confirming the machine MOK](/img/docs/secure-boot/mok-enroll-confirm.png)
+
+Choose **Yes** on `Enroll the key(s)?`. After enrollment, the main menu changes to **Reboot**; select it to restart:
+
+![Reboot after enrolling the machine certificate](/img/docs/secure-boot/mok-reboot.png)
+
+:::warning
+
+Disk enrollment is a recovery path for a missing pending-MOK menu item. Do not import arbitrary `.cer` files from unknown removable media. Select only the `catos-machine.cer` deployed by the CatOS installer to the target ESP.
+
+:::
+
 After enrollment, check:
 
 ```bash
@@ -58,6 +114,15 @@ sudo catos-secureboot verify
 ```
 
 If the state remains enrollment-pending, complete MOK enrollment before diagnosing driver or external-module signature failures.
+
+If manual enrollment still leaves `catos-secureboot status` reporting `certificate_enrolled: False` or `phase: degraded`, do not treat a successful boot as proof that enrollment is complete. Submit a fresh CatOS-managed request:
+
+```bash
+sudo catos-secureboot enable --generate-enrollment-password
+sudo cat /var/lib/catos-secureboot/enrollment-password
+```
+
+Record the new password, reboot, complete the pending `Enroll MOK` request if it appears, and run `status` and `verify` again.
 
 ## Maintenance after updates
 
