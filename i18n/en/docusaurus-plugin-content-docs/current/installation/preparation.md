@@ -8,7 +8,7 @@ description: Check hardware, verify the image and create installation media with
 
 ## System requirements
 
-CatOS 2026.07.19 is provided only for `x86_64`. It does not support ARM, LoongArch or 32-bit x86 processors.
+CatOS 2026.08.05 is provided only for `x86_64`. It does not support ARM, LoongArch or 32-bit x86 processors.
 
 Minimum:
 
@@ -30,8 +30,8 @@ Recommended:
 Choose the standard or NVIDIA image on the [download page](/en/docs/download), then verify it:
 
 ```bash
-sha256sum catos-2026.07.19-x86_64.iso
-sha256sum catos-for-nvidia-2026.07.19-x86_64.iso
+sha256sum catos-2026.08.05-x86_64.iso
+sha256sum catos-for-nvidia-2026.08.05-x86_64.iso
 ```
 
 Do not write or install an image whose checksum does not match.
@@ -87,7 +87,7 @@ sudo sh Ventoy2Disk.sh -i /dev/sdX
 lsblk -o NAME,SIZE,MODEL,TRAN,MOUNTPOINTS
 ```
 
-If Ventoy does not boot on a particular firmware or Secure Boot configuration, try direct writing with Rufus, Etcher or ISO Image Writer.
+CatOS 2026.08.05 itself supports UEFI Secure Boot, but Ventoy adds its own boot chain and key-enrollment path. If Ventoy cannot boot CatOS with Secure Boot enabled, try a direct write with Rufus, Etcher or ISO Image Writer first; temporarily disabling Secure Boot should be a troubleshooting step rather than the default requirement.
 
 ## Rufus on Windows
 
@@ -140,7 +140,7 @@ sudo dnf install isoimagewriter
 Use only when you can identify the block device confidently:
 
 ```bash
-sudo dd if=catos-2026.07.19-x86_64.iso of=/dev/sdX bs=4M status=progress oflag=sync
+sudo dd if=catos-2026.08.05-x86_64.iso of=/dev/sdX bs=4M status=progress oflag=sync
 ```
 
 Use the NVIDIA filename when writing that image. The output must be the whole device, not a numbered partition.

@@ -24,6 +24,7 @@ CatOS 自动快照和可启动快照要求：
 | --- | --- |
 | GRUB | `grub-btrfs` |
 | Limine | `limine-btrfs` |
+| rEFInd | 安装器不自动配置启动快照 |
 | systemd-boot | `sdboot-btrfs` |
 | UKI | 安装器不自动配置启动快照 |
 | EFI Stub | 安装器不自动配置启动快照 |

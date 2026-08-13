@@ -14,6 +14,7 @@ Automatic and bootable snapshots require a Btrfs root filesystem, a working Snap
 | --- | --- |
 | GRUB | `grub-btrfs` |
 | Limine | `limine-btrfs` |
+| rEFInd | Not configured automatically |
 | systemd-boot | `sdboot-btrfs` |
 | UKI | Not configured automatically |
 | EFI Stub | Not configured automatically |

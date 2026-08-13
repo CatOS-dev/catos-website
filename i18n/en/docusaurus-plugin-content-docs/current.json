@@ -7,6 +7,10 @@
     "message": "Installation",
     "description": "The label for category '安装' in sidebar 'docs'"
   },
+  "sidebar.docs.category.使用": {
+    "message": "Usage",
+    "description": "The label for category '使用' in sidebar 'docs'"
+  },
   "sidebar.docs.category.系统维护": {
     "message": "System maintenance",
     "description": "The label for category '系统维护' in sidebar 'docs'"

@@ -6,7 +6,7 @@ description: Desktop choices, Wayland workflows, and customization repositories 
 
 # Desktop environments and window managers
 
-The advanced CatOS installation configuration can select a desktop environment or window manager during installation. It currently provides **15 graphical choices**, as well as **No Desktop** for a base system without a graphical interface.
+The advanced CatOS installation configuration can select a desktop environment or window manager during installation. It currently provides **16 graphical choices**, as well as **No Desktop** for a base system without a graphical interface.
 
 The customization depth is not identical for every option. Some desktops have dedicated CatOS configuration repositories, while others primarily use upstream defaults together with shared CatOS GTK, icon, font, or common-tool settings.
 
@@ -29,11 +29,12 @@ The customization depth is not identical for every option. Some desktops have de
 
 | Choice | Intended use | CatOS customization |
 | --- | --- | --- |
-| **Niri + DMS** | A scrolling tiling Wayland desktop using Dank Material Shell | Assembled by the installer from Niri, DMS, and common desktop components; dedicated customization is still being organized |
+| **Niri + DMS** | A scrolling tiling Wayland desktop using Dank Material Shell | Uses the dedicated `catos-niri-dms` Catdot Profile for Niri, portals, the GTK baseline, and desktop tools |
+| **Niri + Noctalia** | A scrolling tiling Wayland desktop using Noctalia Shell | Uses the dedicated `catos-niri-noctaliav5` Catdot Profile and can use Noctalia Greeter |
 | **Hyprland + DMS** | A dynamic tiling Wayland desktop using Dank Material Shell | Assembled by the installer from Hyprland, DMS, and common desktop components; dedicated customization is still being organized |
-| **Sway** | A stable, keyboard-driven tiling Wayland environment | Dedicated [Sway settings](https://github.com/CatOS-dev/catos-sway-settings), plus [Waybar settings](https://github.com/CatOS-dev/catos-waybar-settings) |
-| **Labwc** | A lightweight floating Wayland desktop inspired by Openbox | Dedicated [Labwc settings](https://github.com/CatOS-dev/catos-labwc-settings), plus shared Waybar configuration |
-| **Wayfire** | A lightweight floating Wayland environment with desktop effects | Dedicated [Wayfire settings](https://github.com/CatOS-dev/catos-wayfire-settings), plus shared Waybar configuration |
+| **Sway** | A stable, keyboard-driven tiling Wayland environment | Uses the dedicated [Sway settings](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile, plus [Waybar settings](https://github.com/CatOS-dev/catos-waybar-settings) |
+| **Labwc** | A lightweight floating Wayland desktop inspired by Openbox | Uses the dedicated [Labwc settings](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile, plus shared Waybar configuration |
+| **Wayfire** | A lightweight floating Wayland environment with desktop effects | Uses the dedicated [Wayfire settings](https://github.com/CatOS-dev/catos-wayfire-settings) Catdot Profile |
 
 ## No Desktop
 
@@ -50,7 +51,7 @@ No Desktop does not indicate an incomplete installation. Any desktop components 
 - For the most complete default experience and the broadest customization options, choose **KDE Plasma**.
 - For a focused and consistent workflow, choose **GNOME**.
 - For lower-resource systems or a traditional desktop, choose **Xfce, LXQt, LXDE, or MATE**.
-- For a modern scrolling tiling workflow, choose **Niri + DMS**.
+- For a modern scrolling tiling workflow, choose **Niri + DMS** or **Niri + Noctalia**.
 - For a keyboard-driven tiling environment, choose **Sway**.
 - For a lightweight floating Wayland desktop, choose **Labwc or Wayfire**.
 - For complete manual control, choose **No Desktop**.
@@ -75,6 +76,8 @@ Useful entry points:
 - [catos-labwc-settings](https://github.com/CatOS-dev/catos-labwc-settings): Labwc session configuration;
 - [catos-wayfire-settings](https://github.com/CatOS-dev/catos-wayfire-settings): Wayfire session configuration;
 - [catos-waybar-settings](https://github.com/CatOS-dev/catos-waybar-settings): shared Waybar configuration for multiple Wayland sessions;
+- [catos-niri-dms](https://github.com/CatOS-dev/catos-niri-dms): the Niri + DMS Catdot Profile;
+- [catos-niri-noctaliav5](https://github.com/CatOS-dev/catos-niri-noctaliav5): the Niri + Noctalia Catdot Profile;
 - [catos-gtk-settings](https://github.com/CatOS-dev/catos-gtk-settings): shared GTK theme and base settings;
 - [catos-kde-theme](https://github.com/CatOS-dev/catos-kde-theme): CatOS KDE theme resources.
 

@@ -17,7 +17,7 @@ description: 从软件仓库安装 CatOS，并选择仓库、启动器、桌面�
 - 能够访问 Arch Linux、CatOS，以及选择后可能使用的 CachyOS 仓库；
 - 足够的安装时间，软件包数量和网络速度都会影响完成时间。
 
-网络中断或仓库同步异常可能导致安装失败。安装器日志会保留失败的软件包和命令，反馈问题时请一并提供。
+网络中断或仓库同步异常可能导致安装失败。安装器会显示当前下载量、总下载量、速度和正在下载的软件包，并在失败时保留最近的软件包管理器输出、失败命令和退出状态。反馈问题时请一并提供安装日志。
 
 ## 安装流程
 
@@ -67,17 +67,22 @@ Arch Linux 官方仓库
 
 这不是单纯更换下载镜像，而是改变部分软件包来源和默认内核。希望使用 CachyOS 优化内核与软件包时再选择它。
 
+安装器只会在当前 CPU 支持 x86-64-v3 时显示 CachyOS 选项，避免在不支持对应优化级别的处理器上建立不可启动或无法更新的软件栈。
+
 ## 启动方式
 
 在线安装目前提供：
 
 - GRUB；
 - Limine；
+- rEFInd；
 - systemd-boot；
 - Unified Kernel Image（UKI）；
 - Linux EFI Stub。
 
-固件模式、分区表、EFI 系统分区大小以及快照需求都会影响选择。多数用户应选择 GRUB；仅 UEFI 设备可选择其他方案。
+固件模式、分区表、EFI 系统分区大小、Secure Boot 状态以及快照需求都会影响选择。多数用户应选择 GRUB；仅 UEFI 设备可选择其他方案。
+
+如果当前 Live 环境以 Secure Boot 启动，安装器只提供 GRUB、Limine、systemd-boot 和 UKI 等能够自动完成 Secure Boot 配置的方案。rEFInd 与 EFI Stub 会被隐藏。
 
 详细比较见[启动方式与快照](./boot-and-snapshots.md)。
 
@@ -97,6 +102,8 @@ CatOS 默认文件系统是 Btrfs。安装器也提供 ext4、ext3、JFS、XFS �
 
 安装器默认选择 KDE Plasma。每次安装只应选择一个主要桌面预设，以免引入重复应用、显示管理器或配置冲突。
 
+Niri + DMS 与 Niri + Noctalia 使用 Catdot Profile 完成用户配置部署。安装器在软件包安装完成后使用验证模式激活 Profile，不会再次重复安装同一组软件包。
+
 查看全部选项：[桌面环境与窗口管理器](/docs/desktops)。
 
 ## 输入法、Shell 和额外内核
@@ -104,7 +111,7 @@ CatOS 默认文件系统是 Btrfs。安装器也提供 ext4、ext3、JFS、XFS �
 安装器还可以选择：
 
 - Fcitx5 或 IBus 输入法框架；
-- Fish 或 Zsh；
+- Bash、Fish 或 Zsh 的 CatOS 配置；
 - LTS、Mainline、Zen、Hardened 等额外内核；
 - 其他终端模拟器；
 - 音视频、图形设计和常用应用。

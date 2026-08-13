@@ -30,13 +30,14 @@ const sidebars: SidebarsConfig = {
         'usage/discover',
         'usage/aur',
         'usage/update',
+        'usage/catdot',
         'usage/shortcuts',
       ],
     },
     {
       type: 'category',
       label: '系统维护',
-      items: ['system/maintenance', 'system/snapshots'],
+      items: ['system/maintenance', 'system/secure-boot', 'system/snapshots'],
     },
     {
       type: 'category',

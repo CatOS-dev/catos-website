@@ -43,7 +43,25 @@ For GRUB, inspect generated entries:
 grep -E '^menuentry ' /boot/grub/grub.cfg | head
 ```
 
-For Limine, systemd-boot, UKI and EFI Stub, verify their generated configuration and EFI files.
+For Limine, rEFInd, systemd-boot, UKI and EFI Stub, verify their generated configuration and EFI files.
+
+rEFInd users can also check:
+
+```bash
+test -f /boot/refind_linux.conf && echo 'rEFInd kernel options present'
+```
+
+## Secure Boot
+
+If the live environment was started with Secure Boot enabled during installation, check after reboot:
+
+```bash
+mokutil --sb-state
+sudo catos-secureboot status
+sudo catos-secureboot verify
+```
+
+If the machine certificate is still enrollment-pending, complete MokManager enrollment first. See [Secure Boot](/en/docs/system/secure-boot).
 
 ## Snapshots
 

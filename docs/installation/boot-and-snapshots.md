@@ -1,12 +1,12 @@
 ---
 title: 启动方式与快照
 sidebar_position: 6
-description: 比较 GRUB、Limine、systemd-boot、UKI 和 EFI Stub，并说明 CatOS 的 Snapper 快照与启动集成。
+description: 比较 GRUB、Limine、rEFInd、systemd-boot、UKI 和 EFI Stub，并说明 CatOS 的 Secure Boot、Snapper 快照与启动集成。
 ---
 
 # 启动方式与快照
 
-在线安装允许选择启动方式。不同方案支持的固件、EFI 系统分区大小和快照能力不同。
+在线安装允许选择启动方式。不同方案支持的固件、Secure Boot、EFI 系统分区大小和快照能力不同。
 
 ## 如何选择
 
@@ -14,6 +14,7 @@ description: 比较 GRUB、Limine、systemd-boot、UKI 和 EFI Stub，并说明 
 | --- | --- | ---: | --- | --- |
 | GRUB | UEFI、传统 BIOS | 300 MiB | 支持 | 兼容性优先、双系统、传统 BIOS |
 | Limine | UEFI + GPT | 2 GiB | 支持 | 希望使用现代、配置清晰的启动器 |
+| rEFInd | UEFI + GPT | 512 MiB | 当前不支持 | 希望使用图形化 UEFI 启动管理器和自动发现 |
 | systemd-boot | UEFI + GPT | 2 GiB | 支持 | 希望使用精简 UEFI 启动管理器 |
 | UKI | UEFI + GPT | 2 GiB | 当前不支持 | 熟悉统一内核镜像和 UEFI 的高级用户 |
 | EFI Stub | UEFI + GPT | 2 GiB | 当前不支持 | 希望由固件直接启动 Linux 内核的高级用户 |
@@ -31,13 +32,25 @@ description: 比较 GRUB、Limine、systemd-boot、UKI 和 EFI Stub，并说明 
 
 ### Limine
 
-CatOS 使用 `limine-tool` 管理 Limine 启动配置，并使用 `limine-btrfs` 生成和验证快照条目。
+CatOS 使用 `limine-tool` 管理 Limine 启动配置，应用 `catos-limine-theme` 主题，并使用 `limine-btrfs` 生成和验证快照条目。
 
 要求：
 
 - UEFI；
 - GPT；
 - 至少 1 GiB ESP，建议 2 GiB。
+
+### rEFInd
+
+rEFInd 是图形化 UEFI 启动管理器，可自动发现已安装的操作系统和 Linux 内核。CatOS 安装器会生成与当前根文件系统和内核匹配的 `refind_linux.conf`。
+
+要求：
+
+- UEFI；
+- GPT；
+- 至少 300 MiB ESP，建议 512 MiB；
+- 当前不提供 CatOS Btrfs 可启动快照集成；
+- Secure Boot 已启用时安装器不会提供此选项。
 
 ### systemd-boot
 
@@ -61,6 +74,21 @@ CatOS 使用 `limine-tool` 管理 Limine 启动配置，并使用 `limine-btrfs`
 
 当前 CatOS 的 EFI Stub 方案不提供可启动 Btrfs 快照集成。
 
+## Secure Boot 支持
+
+CatOS 2026.08.05 在 Live 镜像和安装后系统中加入 Secure Boot 支持。安装器检测到 Secure Boot 已启用时，会自动限制启动器选项：
+
+| 启动方式 | 自动 Secure Boot 配置 |
+| --- | --- |
+| GRUB | 支持 |
+| Limine | 支持 |
+| rEFInd | 当前不支持 |
+| systemd-boot | 支持 |
+| UKI | 支持 |
+| EFI Stub | 当前不支持 |
+
+支持的方案由 `catos-secureboot` 生成机器级 MOK，并维护内核、外部模块和 EFI 启动文件的签名。详见 [Secure Boot](/docs/system/secure-boot)。
+
 ## 快照何时可用
 
 CatOS 的系统快照要求：
@@ -74,6 +102,7 @@ CatOS 的系统快照要求：
 ```text
 GRUB         + Btrfs → Snapper + grub-btrfs
 Limine       + Btrfs → Snapper + limine-btrfs
+rEFInd       + Btrfs → 安装器不配置启动快照；需要安装后自行配置 Snapper
 systemd-boot + Btrfs → Snapper + sdboot-btrfs
 UKI          + Btrfs → 安装器不配置快照；需要安装后自行配置 Snapper
 EFI Stub     + Btrfs → 安装器不配置快照；需要安装后自行配置 Snapper

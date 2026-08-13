@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 title: 下载
-description: 下载 CatOS 2026.07.19 系统镜像并核对 SHA-256 校验值。
+description: 下载 CatOS 2026.08.05 系统镜像，并保留 CatOS 2026.07.19 历史版本下载与 SHA-256 校验信息。
 ---
 
 # 下载
 
-CatOS 以 ISO 镜像文件的方式分发。当前发布版本为 **CatOS 2026.07.19**，提供普通版和 NVIDIA 版两个镜像。
+CatOS 以 ISO 镜像文件的方式分发。当前发布版本为 **CatOS 2026.08.05**，提供普通版和 NVIDIA 版两个镜像。CatOS 2026.07.19 的下载信息继续保留在本页下方。
 
 下载完成后，请务必核对文件名与 SHA-256 校验值。
 
@@ -41,6 +41,54 @@ lspci -k -d ::03xx
 :::
 
 NVIDIA 在不同架构上使用的驱动包和支持状态并不完全相同。更完整的分代、驱动选择与故障排查说明请参考 [ArchWiki：NVIDIA](https://wiki.archlinux.org/title/NVIDIA)。
+
+## CatOS 2026.08.05
+
+本次版本的主要变化见 [CatOS 2026.08.05 更新日志](/news/2026-08-05-release)。
+
+### 普通版
+
+文件名：
+
+```text
+catos-2026.08.05-x86_64.iso
+```
+
+SHA-256：
+
+```text
+b7611e316dbcd56e56ed2319274400f91d03fe1c0ab012499b125d9c7495a296
+```
+
+下载地址：
+
+- [123云盘](https://1690957.share.123pan.cn/123pan/2LH9-M25ov?pwd=qgb8#)
+- [Google Drive](https://drive.google.com/file/d/11QZjaZNfUx4OdVFtzPnQy7cLeLrXVntk/view?usp=sharing)
+- [百度网盘](https://pan.baidu.com/s/1QFFmhDPiwgWylSfgt2X_jw?pwd=fiuk)
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-2026.08.05-x86_64.iso)
+
+### NVIDIA 版
+
+文件名：
+
+```text
+catos-for-nvidia-2026.08.05-x86_64.iso
+```
+
+SHA-256：
+
+```text
+c943c4561de6fc06285280a5948e0e515ae833205854768787f915eb772f4856
+```
+
+下载地址：
+
+- [123云盘](https://1690957.share.123pan.cn/123pan/2LH9-qHWov?pwd=dNX9#)
+- [Google Drive](https://drive.google.com/file/d/1Hw71UlVhFtN1cUtf9qOtgEsktxcBj1J8/view?usp=sharing)
+- [百度网盘](https://pan.baidu.com/s/1VKMbnbQC1dXiS8FIqotwuA?pwd=iamd)
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-for-nvidia-2026.08.05-x86_64.iso)
+
+## 历史版本：CatOS 2026.07.19
 
 ## 普通版
 
@@ -87,6 +135,8 @@ a1d2808c43e33054d6d2099c91c076a8d44c3d90aefc3f8bfa2845b1ec1d38e7
 Linux 下可使用：
 
 ```bash
+sha256sum catos-2026.08.05-x86_64.iso
+sha256sum catos-for-nvidia-2026.08.05-x86_64.iso
 sha256sum catos-2026.07.19-x86_64.iso
 sha256sum catos-for-nvidia-2026.07.19-x86_64.iso
 ```

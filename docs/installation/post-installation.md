@@ -64,9 +64,27 @@ efibootmgr -v
 grep -E '^menuentry ' /boot/grub/grub.cfg | head
 ```
 
-Limine、systemd-boot、UKI 和 EFI Stub 用户应确认对应配置、内核或 EFI 文件已经生成。
+Limine、rEFInd、systemd-boot、UKI 和 EFI Stub 用户应确认对应配置、内核或 EFI 文件已经生成。
 
-## 5. 检查 Btrfs 和快照
+rEFInd 用户可额外检查：
+
+```bash
+test -f /boot/refind_linux.conf && echo 'rEFInd kernel options present'
+```
+
+## 5. 检查 Secure Boot
+
+如果安装时以 Secure Boot 启动 Live 环境，重启后检查：
+
+```bash
+mokutil --sb-state
+sudo catos-secureboot status
+sudo catos-secureboot verify
+```
+
+如果机器证书仍处于 enrollment pending 状态，应先完成 MokManager 注册。详细说明见 [Secure Boot](/docs/system/secure-boot)。
+
+## 6. 检查 Btrfs 和快照
 
 使用 Btrfs 时执行：
 
@@ -79,7 +97,7 @@ systemctl status snapper-cleanup.timer
 
 如果选择 GRUB、Limine 或 systemd-boot 的可启动快照集成，还应确认启动菜单能看到由对应工具生成的快照入口。
 
-## 6. 检查显卡驱动
+## 7. 检查显卡驱动
 
 ```bash
 lspci -k -d ::03xx
@@ -102,7 +120,7 @@ nvidia-smi
 
 更多内容见[硬件驱动](./hardware-drivers.md)。
 
-## 7. 检查网络、声音和蓝牙
+## 8. 检查网络、声音和蓝牙
 
 ```bash
 nmcli device
@@ -118,13 +136,13 @@ systemctl status bluetooth
 - 摄像头；
 - 触摸板、触摸屏和功能键。
 
-## 8. 检查桌面会话
+## 9. 检查桌面会话
 
 确认登录界面中的会话与安装时选择一致。安装多个桌面或窗口管理器时，检查默认显示管理器和 XDG Portal 是否符合主要桌面。
 
 桌面选项说明见[桌面环境与窗口管理器](/docs/desktops)。
 
-## 9. 保留安装日志
+## 10. 保留安装日志
 
 出现安装后问题时，不要只描述“无法启动”或“驱动有问题”。至少保存：
 
@@ -151,6 +169,6 @@ Calamares 日志通常位于 Live 环境的：
 - 显卡型号；
 - 错误发生在安装、首次启动还是更新之后。
 
-## 10. 建立独立备份
+## 11. 建立独立备份
 
 Btrfs 快照不能替代备份。重要文件应复制到其他物理磁盘、NAS 或可信远端存储，并定期验证能否恢复。

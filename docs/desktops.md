@@ -6,7 +6,7 @@ description: CatOS 安装器提供的桌面、Wayland 工作流和对应定制�
 
 # 桌面环境与窗口管理器
 
-CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管理器。当前提供 **15 种图形方案**，也可以选择 **No Desktop** 安装不带图形界面的基础系统。
+CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管理器。当前提供 **16 种图形方案**，也可以选择 **No Desktop** 安装不带图形界面的基础系统。
 
 不同选项的维护深度并不完全相同：部分桌面拥有独立的 CatOS 配置仓库，部分桌面主要使用上游默认组件并共享 CatOS 的 GTK、图标、字体或通用工具配置。
 
@@ -29,11 +29,12 @@ CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管�
 
 | 选项 | 定位 | CatOS 定制情况 |
 | --- | --- | --- |
-| **Niri + DMS** | 使用 Dank Material Shell 的滚动平铺式 Wayland 桌面 | 由安装器组合 Niri、DMS 和通用桌面组件；专用定制仍在持续整理 |
+| **Niri + DMS** | 使用 Dank Material Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-dms` Catdot Profile 管理 Niri、Portal、GTK 基线和桌面工具 |
+| **Niri + Noctalia** | 使用 Noctalia Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-noctaliav5` Catdot Profile，并可使用 Noctalia Greeter |
 | **Hyprland + DMS** | 使用 Dank Material Shell 的动态平铺式 Wayland 桌面 | 由安装器组合 Hyprland、DMS 和通用桌面组件；专用定制仍在持续整理 |
-| **Sway** | 稳定、键盘驱动的平铺式 Wayland 环境 | 维护独立的 [Sway 设置](https://github.com/CatOS-dev/catos-sway-settings)，并使用 [Waybar 设置](https://github.com/CatOS-dev/catos-waybar-settings) |
-| **Labwc** | 受 Openbox 启发的轻量 Wayland 浮动桌面 | 维护独立的 [Labwc 设置](https://github.com/CatOS-dev/catos-labwc-settings)，并使用 Waybar 通用配置 |
-| **Wayfire** | 带有适度桌面特效的轻量 Wayland 浮动环境 | 维护独立的 [Wayfire 设置](https://github.com/CatOS-dev/catos-wayfire-settings)，并使用 Waybar 通用配置 |
+| **Sway** | 稳定、键盘驱动的平铺式 Wayland 环境 | 使用独立的 [Sway 设置](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile，并使用 [Waybar 设置](https://github.com/CatOS-dev/catos-waybar-settings) |
+| **Labwc** | 受 Openbox 启发的轻量 Wayland 浮动桌面 | 使用独立的 [Labwc 设置](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile，并使用 Waybar 通用配置 |
+| **Wayfire** | 带有适度桌面特效的轻量 Wayland 浮动环境 | 使用独立的 [Wayfire 设置](https://github.com/CatOS-dev/catos-wayfire-settings) Catdot Profile |
 
 ## No Desktop
 
@@ -50,7 +51,7 @@ No Desktop 不代表安装失败。安装完成后可以通过 `pacman` 或 AUR 
 - 希望获得完成度最高、定制选项最丰富的默认体验：选择 **KDE Plasma**。
 - 偏好统一、简洁的工作流：选择 **GNOME**。
 - 设备资源较少或偏好传统桌面：选择 **Xfce、LXQt、LXDE 或 MATE**。
-- 希望使用现代滚动平铺工作流：选择 **Niri + DMS**。
+- 希望使用现代滚动平铺工作流：选择 **Niri + DMS** 或 **Niri + Noctalia**。
 - 熟悉键盘驱动的平铺窗口管理：选择 **Sway**。
 - 希望获得轻量浮动 Wayland 桌面：选择 **Labwc 或 Wayfire**。
 - 希望完全自己配置：选择 **No Desktop**。
@@ -75,6 +76,8 @@ No Desktop 不代表安装失败。安装完成后可以通过 `pacman` 或 AUR 
 - [catos-labwc-settings](https://github.com/CatOS-dev/catos-labwc-settings)：Labwc 会话配置；
 - [catos-wayfire-settings](https://github.com/CatOS-dev/catos-wayfire-settings)：Wayfire 会话配置；
 - [catos-waybar-settings](https://github.com/CatOS-dev/catos-waybar-settings)：多个 Wayland 会话共享的 Waybar 配置；
+- [catos-niri-dms](https://github.com/CatOS-dev/catos-niri-dms)：Niri + DMS 的 Catdot Profile；
+- [catos-niri-noctaliav5](https://github.com/CatOS-dev/catos-niri-noctaliav5)：Niri + Noctalia 的 Catdot Profile；
 - [catos-gtk-settings](https://github.com/CatOS-dev/catos-gtk-settings)：GTK 桌面共享的主题和基础设置；
 - [catos-kde-theme](https://github.com/CatOS-dev/catos-kde-theme)：CatOS KDE 主题资源。
 

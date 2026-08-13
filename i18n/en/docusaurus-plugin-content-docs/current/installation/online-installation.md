@@ -10,7 +10,7 @@ Online installation builds the target system from repositories instead of copyin
 
 ## Requirements
 
-You need a stable network, correct system time and access to the Arch Linux, CatOS and, when selected, CachyOS repositories. Repository synchronization or network failures can abort installation; keep the Calamares log when reporting a failure.
+You need a stable network, correct system time and access to the Arch Linux, CatOS and, when selected, CachyOS repositories. The installer reports downloaded and total data, current transfer speed and active package names. Repository synchronization or network failures can still abort installation; failure diagnostics retain recent package-manager output, the failed command and its exit status.
 
 ## Flow
 
@@ -44,11 +44,11 @@ The default uses Arch Linux official repositories plus CatOS repositories. It ke
 
 ### CatOS + CachyOS repositories
 
-This option keeps CatOS repositories, enables CachyOS repositories selected for the current CPU and installs `linux-cachyos`. It changes the kernel and some package sources; select it when you specifically want the CachyOS optimized stack.
+This option keeps CatOS repositories, enables CachyOS repositories selected for the current CPU and installs `linux-cachyos`. It changes the kernel and some package sources; select it when you specifically want the CachyOS optimized stack. The option is shown only when the current CPU supports x86-64-v3.
 
 ## Boot method
 
-Available options are GRUB, Limine, systemd-boot, Unified Kernel Image and Linux EFI Stub. Firmware mode, partition table, ESP size and snapshot requirements determine which one is appropriate. See [boot methods and snapshots](./boot-and-snapshots.md).
+Available options are GRUB, Limine, rEFInd, systemd-boot, Unified Kernel Image and Linux EFI Stub. Firmware mode, Secure Boot state, partition table, ESP size and snapshot requirements determine which one is appropriate. When Secure Boot is active, the installer offers only GRUB, Limine, systemd-boot and UKI because rEFInd and EFI Stub do not currently have automatic CatOS Secure Boot integration. See [boot methods and snapshots](./boot-and-snapshots.md).
 
 ## Filesystem
 
@@ -58,9 +58,11 @@ Btrfs is the default. ext4, ext3, JFS, XFS and F2FS are also available. Choose B
 
 The installer can install a complete desktop, a lightweight desktop, a Wayland workflow or a command-line system without a desktop. KDE Plasma is selected by default. Choose one primary desktop preset to avoid duplicated applications, display managers and configuration.
 
+Niri + DMS and Niri + Noctalia use Catdot Profiles. After package deployment, the installer activates the selected Profile in package-verification mode instead of running a second package installation.
+
 See [desktop environments and window managers](/en/docs/desktops).
 
-Additional selections include Fcitx5 or IBus, Fish or Zsh, LTS/Mainline/Zen/Hardened kernels, virtualization tools, Docker, Podman, development tools, Distroshelf and common applications.
+Additional selections include Fcitx5 or IBus, CatOS Bash/Fish/Zsh configuration, LTS/Mainline/Zen/Hardened kernels, virtualization tools, Docker, Podman, development tools, Distroshelf and common applications.
 
 ## Driver configuration
 

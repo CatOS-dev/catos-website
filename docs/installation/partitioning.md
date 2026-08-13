@@ -16,6 +16,7 @@ description: 选择 GPT 或 MBR、自动或手动分区、Btrfs 或其他文件�
 | Windows 10/11 双系统 | GPT | 应与现有 Windows 保持相同固件模式 |
 | 传统 BIOS | MBR 或 GPT | 只能选择 GRUB；GPT 可能需要 BIOS Boot 分区 |
 | Limine | GPT | CatOS 当前配置要求 UEFI + GPT |
+| rEFInd | GPT | 仅 UEFI；当前不提供 CatOS 可启动快照集成 |
 | systemd-boot | GPT | 仅 UEFI |
 | UKI | GPT | 仅 UEFI |
 | EFI Stub | GPT | 仅 UEFI |
@@ -79,6 +80,7 @@ Calamares 根据磁盘状态可能提供以下方式：
 | --- | ---: | ---: |
 | GRUB | 300 MiB | 300 MiB 或更大 |
 | Limine | 1 GiB | 2 GiB |
+| rEFInd | 300 MiB | 512 MiB |
 | systemd-boot | 1 GiB | 2 GiB |
 | UKI | 1 GiB | 2 GiB |
 | EFI Stub | 1 GiB | 2 GiB |

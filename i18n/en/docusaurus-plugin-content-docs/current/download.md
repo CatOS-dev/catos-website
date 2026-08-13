@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 title: Download
-description: Download CatOS 2026.07.19 images and verify their SHA-256 checksums.
+description: Download CatOS 2026.08.05 images while retaining CatOS 2026.07.19 downloads and SHA-256 checksums.
 ---
 
 # Download
 
-CatOS is distributed as an ISO image. The current release is **CatOS 2026.07.19**, available as a standard image and an NVIDIA image.
+CatOS is distributed as an ISO image. The current release is **CatOS 2026.08.05**, available as a standard image and an NVIDIA image. CatOS 2026.07.19 remains available further down this page.
 
 After downloading, verify both the filename and the SHA-256 checksum.
 
@@ -41,6 +41,54 @@ On Windows, open Device Manager and inspect Display adapters. On a hybrid-graphi
 :::
 
 Driver packages and support status differ between NVIDIA architectures. See the [ArchWiki NVIDIA page](https://wiki.archlinux.org/title/NVIDIA) for the full architecture and driver matrix and troubleshooting guidance.
+
+## CatOS 2026.08.05
+
+See the [CatOS 2026.08.05 release notes](/en/news/2026-08-05-release) for the main changes in this release.
+
+### Standard image
+
+Filename:
+
+```text
+catos-2026.08.05-x86_64.iso
+```
+
+SHA-256:
+
+```text
+b7611e316dbcd56e56ed2319274400f91d03fe1c0ab012499b125d9c7495a296
+```
+
+Download:
+
+- [123 Cloud](https://1690957.share.123pan.cn/123pan/2LH9-M25ov?pwd=qgb8#)
+- [Google Drive](https://drive.google.com/file/d/11QZjaZNfUx4OdVFtzPnQy7cLeLrXVntk/view?usp=sharing)
+- [Baidu Netdisk](https://pan.baidu.com/s/1QFFmhDPiwgWylSfgt2X_jw?pwd=fiuk)
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-2026.08.05-x86_64.iso)
+
+### NVIDIA image
+
+Filename:
+
+```text
+catos-for-nvidia-2026.08.05-x86_64.iso
+```
+
+SHA-256:
+
+```text
+c943c4561de6fc06285280a5948e0e515ae833205854768787f915eb772f4856
+```
+
+Download:
+
+- [123 Cloud](https://1690957.share.123pan.cn/123pan/2LH9-qHWov?pwd=dNX9#)
+- [Google Drive](https://drive.google.com/file/d/1Hw71UlVhFtN1cUtf9qOtgEsktxcBj1J8/view?usp=sharing)
+- [Baidu Netdisk](https://pan.baidu.com/s/1VKMbnbQC1dXiS8FIqotwuA?pwd=iamd)
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-for-nvidia-2026.08.05-x86_64.iso)
+
+## Previous release: CatOS 2026.07.19
 
 ## Standard image
 
@@ -87,6 +135,8 @@ Download mirrors:
 On Linux, run:
 
 ```bash
+sha256sum catos-2026.08.05-x86_64.iso
+sha256sum catos-for-nvidia-2026.08.05-x86_64.iso
 sha256sum catos-2026.07.19-x86_64.iso
 sha256sum catos-for-nvidia-2026.07.19-x86_64.iso
 ```

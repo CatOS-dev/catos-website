@@ -16,6 +16,7 @@ Partitioning determines where system data is stored and limits boot, encryption,
 | Windows 10/11 dual boot | GPT | Use the same firmware mode as Windows |
 | Legacy BIOS | MBR or GPT | GRUB only; GPT may need a BIOS Boot partition |
 | Limine | GPT | Current CatOS profile requires UEFI + GPT |
+| rEFInd | GPT | UEFI only; no automatic CatOS bootable-snapshot integration |
 | systemd-boot, UKI, EFI Stub | GPT | UEFI only |
 
 Do not mix UEFI and legacy BIOS on the same dual-boot installation.
@@ -43,6 +44,7 @@ An existing Windows ESP can usually be reused without formatting. Verify its fre
 | --- | ---: | ---: |
 | GRUB | 300 MiB | 300 MiB or more |
 | Limine | 1 GiB | 2 GiB |
+| rEFInd | 300 MiB | 512 MiB |
 | systemd-boot | 1 GiB | 2 GiB |
 | UKI | 1 GiB | 2 GiB |
 | EFI Stub | 1 GiB | 2 GiB |

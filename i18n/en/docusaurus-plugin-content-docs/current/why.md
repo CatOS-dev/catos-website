@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Why CatOS
-summary: The main advantages and intended use cases of CatOS 2026.07.19.
+summary: The main advantages and intended use cases of CatOS 2026.08.05.
 ---
 
 # Why CatOS
@@ -28,15 +28,21 @@ These decisions are made during installation instead of installing a large defau
 
 ## 🖥️ From complete desktops to Wayland workflows
 
-The current CatOS installer provides **15 graphical desktop or window-manager choices**, plus a base system without a graphical desktop.
+The current CatOS installer provides **16 graphical desktop or window-manager choices**, plus a base system without a graphical desktop.
 
-The list includes complete desktops such as KDE Plasma, GNOME, Xfce, and Cinnamon, as well as Wayland workflows such as Niri + DMS, Hyprland + DMS, Sway, Labwc, and Wayfire. CatOS maintains dedicated configuration repositories for KDE, GNOME, Xfce, Sway, Labwc, and Wayfire, while other choices primarily use upstream components and shared CatOS styling.
+The list includes complete desktops such as KDE Plasma, GNOME, Xfce, and Cinnamon, as well as Wayland workflows such as Niri + DMS, Niri + Noctalia, Hyprland + DMS, Sway, Labwc, and Wayfire. Niri + DMS, Niri + Noctalia, Sway, Labwc, and Wayfire use Catdot Profiles, while KDE, GNOME, and Xfce also have dedicated configuration repositories.
 
 See [Desktop environments and window managers](./desktops.md) for the complete list, intended use cases, and customization repositories.
 
+## 🔐 Secure Boot and multiple boot methods
+
+CatOS 2026.08.05 release images add a Secure Boot chain. When Secure Boot is active, the installer can automatically prepare GRUB, Limine, systemd-boot, or UKI for the installed system.
+
+Online installation also adds rEFInd while retaining EFI Stub. Boot methods differ in Secure Boot support, Btrfs snapshot integration, and ESP requirements; see [Boot methods and snapshots](./installation/boot-and-snapshots.md) and [Secure Boot](./system/secure-boot.md).
+
 ## 🎮 A dedicated image for modern NVIDIA GPUs
 
-CatOS 2026.07.19 is available as both a standard image and an NVIDIA image. The standard image targets Intel, AMD, and older NVIDIA graphics, while the NVIDIA image contains the driver and boot environment required by modern NVIDIA GPUs.
+CatOS 2026.08.05 is available as both a standard image and an NVIDIA image. The standard image targets Intel, AMD, and older NVIDIA graphics, while the NVIDIA image contains the driver and boot environment required by modern NVIDIA GPUs.
 
 The NVIDIA image is recommended for GTX 16 and RTX 20 through RTX 40 systems, and is required for RTX 50 Series and newer hardware. See the [download page](./download.md) for the full selection guide and download links.
 
