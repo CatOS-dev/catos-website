@@ -22,7 +22,7 @@ Choose the correct image on the [download page](/en/docs/download) before instal
 
 ## Installation steps
 
-The screenshots are from an older Calamares interface. The layout may differ, but the main decisions are unchanged.
+The screenshots below were captured from the CatOS 2026.08.05 offline installation flow at a standard 1920×1080 virtual display resolution.
 
 1. Open the offline “Install CatOS” launcher.
 

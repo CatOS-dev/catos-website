@@ -38,7 +38,21 @@ Live 镜像使用 CatOS 发布证书建立启动信任。安装后的系统不�
 
 ## 安装与首次启动
 
-当安装器检测到 Secure Boot 已启用时，会调用 `catos-secureboot` 为目标系统生成机器密钥、签名启动资源并提交 MOK 注册。首次重启时，固件可能进入 MokManager 完成机器证书注册。
+当安装器检测到 Secure Boot 已启用时，会调用 `catos-secureboot` 为目标系统生成机器密钥、签名启动资源并提交 MOK 注册。首次重启时，shim 可能进入 MokManager 完成机器证书注册。
+
+安装期间生成的一次性 MOK 密码保存在目标系统：
+
+```text
+/var/lib/catos-secureboot/enrollment-password
+```
+
+该文件仅 root 可读，并会在 `catos-secureboot` 确认机器证书已注册后删除。如果首次进入 MokManager 时没有记录密码，不要猜测密码：选择继续启动，登录系统后执行：
+
+```bash
+sudo cat /var/lib/catos-secureboot/enrollment-password
+```
+
+记录密码后重启，再在 MokManager 中完成机器证书注册。
 
 完成注册后可检查：
 

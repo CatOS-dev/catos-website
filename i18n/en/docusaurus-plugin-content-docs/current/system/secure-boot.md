@@ -33,7 +33,21 @@ That machine key is used to maintain installed kernels, external modules under `
 
 ## Installation and first boot
 
-When Secure Boot is active, the installer invokes `catos-secureboot` to create the machine key, sign boot resources and submit MOK enrollment. The first reboot may enter MokManager to complete enrollment of the machine certificate.
+When Secure Boot is active, the installer invokes `catos-secureboot` to create the machine key, sign boot resources and submit MOK enrollment. The first reboot may enter MokManager through shim to complete enrollment of the machine certificate.
+
+The one-time MOK password generated during installation is stored on the target system at:
+
+```text
+/var/lib/catos-secureboot/enrollment-password
+```
+
+The file is root-only and is removed after `catos-secureboot` observes that the machine certificate has been enrolled. If MokManager appears before you have recorded the password, do not guess it: choose to continue booting, sign in, and run:
+
+```bash
+sudo cat /var/lib/catos-secureboot/enrollment-password
+```
+
+Record the password, reboot, and then complete the machine-certificate enrollment in MokManager.
 
 After enrollment, check:
 
