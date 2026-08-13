@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Why CatOS
-summary: The main advantages and intended use cases of CatOS 2026.08.05.
+summary: The main advantages, installation media, and intended use cases of the current rolling CatOS system.
 ---
 
 # Why CatOS
@@ -36,13 +36,13 @@ See [Desktop environments and window managers](./desktops.md) for the complete l
 
 ## 🔐 Secure Boot and multiple boot methods
 
-CatOS 2026.08.05 release images add a Secure Boot chain. When Secure Boot is active, the installer can automatically prepare GRUB, Limine, systemd-boot, or UKI for the installed system.
+Current CatOS release images support the Secure Boot chain. When Secure Boot is active, the installer can automatically prepare GRUB, Limine, systemd-boot, or UKI for the installed system.
 
 Online installation also adds rEFInd while retaining EFI Stub. Boot methods differ in Secure Boot support, Btrfs snapshot integration, and ESP requirements; see [Boot methods and snapshots](./installation/boot-and-snapshots.md) and [Secure Boot](./system/secure-boot.md).
 
 ## 🎮 A dedicated image for modern NVIDIA GPUs
 
-CatOS 2026.08.05 is available as both a standard image and an NVIDIA image. The standard image targets Intel, AMD, and older NVIDIA graphics, while the NVIDIA image contains the driver and boot environment required by modern NVIDIA GPUs.
+The current download page provides both a standard image and an NVIDIA image. The standard image targets Intel, AMD, and older NVIDIA graphics, while the NVIDIA image contains the driver and boot environment required by modern NVIDIA GPUs.
 
 The NVIDIA image is recommended for GTX 16 and RTX 20 through RTX 40 systems, and is required for RTX 50 Series and newer hardware. See the [download page](./download.md) for the full selection guide and download links.
 

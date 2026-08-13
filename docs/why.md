@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: 为什么选择 CatOS
-description: CatOS 2026.08.05 的主要特点与适用场景。
+description: CatOS 当前滚动系统的主要特点、安装介质与适用场景。
 ---
 
 # 为什么选择 CatOS
@@ -36,13 +36,13 @@ CatOS 当前安装器提供 **16 种图形桌面或窗口管理器方案**，以
 
 ## 🔐 Secure Boot 与多启动器支持
 
-CatOS 2026.08.05 的发布镜像加入 Secure Boot 启动链，安装器可以在 Secure Boot 已启用时为 GRUB、Limine、systemd-boot 和 UKI 自动准备安装后的签名环境。
+当前 CatOS 发布镜像支持 Secure Boot 启动链，安装器可以在 Secure Boot 已启用时为 GRUB、Limine、systemd-boot 和 UKI 自动准备安装后的签名环境。
 
 在线安装还提供 rEFInd，并继续支持 EFI Stub。不同启动器对 Secure Boot、Btrfs 快照和 ESP 大小的要求不同，安装前可参阅[启动方式与快照](./installation/boot-and-snapshots.md)和 [Secure Boot](./system/secure-boot.md)。
 
 ## 🎮 针对现代 NVIDIA 显卡提供独立镜像
 
-CatOS 2026.08.05 同时提供普通版和 NVIDIA 版镜像。普通版面向 Intel、AMD 和较早的 NVIDIA 显卡；NVIDIA 版包含现代 NVIDIA 显卡需要的驱动和启动环境。
+当前下载页同时提供普通版和 NVIDIA 版安装介质。普通版面向 Intel、AMD 和较早的 NVIDIA 显卡；NVIDIA 版包含现代 NVIDIA 显卡需要的驱动和启动环境。
 
 GTX 16、RTX 20 至 RTX 40 系列建议使用 NVIDIA 版，RTX 50 系列及更新型号必须使用 NVIDIA 版。具体型号判断和下载地址请参阅[下载页面](./download.md)。
 

@@ -1,12 +1,12 @@
 ---
 title: Secure Boot
 sidebar_position: 2
-description: 了解 CatOS 2026.08.05 的 Secure Boot 启动链、支持的启动器、机器密钥和更新维护方式。
+description: 了解 CatOS 的 Secure Boot 启动链、支持的启动器、机器密钥和滚动更新维护方式。
 ---
 
 # Secure Boot
 
-CatOS 2026.08.05 的发布镜像加入 Secure Boot 启动链，并通过 `catos-secureboot` 管理安装后系统的 Secure Boot 生命周期。
+当前 CatOS 发布镜像支持 Secure Boot 启动链，并通过 `catos-secureboot` 管理安装后系统的 Secure Boot 生命周期。后续内核、模块和启动文件更新通过滚动软件包更新继续维护，不需要等待下一张 ISO。
 
 ## 支持范围
 

@@ -6,7 +6,7 @@ description: 使用 Catdot 选择、更新和维护 CatOS 桌面配置 Profile�
 
 # Catdot 配置 Profile
 
-Catdot 用来切换完整的 CatOS 用户配置 Profile。CatOS 2026.08.05 中，Niri + DMS、Niri + Noctalia、Sway、Labwc 和 Wayfire 使用 Catdot 将桌面软件包与 HOME 下的配置文件作为一个可维护的整体交付。
+Catdot 用来切换完整的 CatOS 用户配置 Profile。当前 CatOS 软件仓库中的 Niri + DMS、Niri + Noctalia、Sway、Labwc 和 Wayfire 使用 Catdot 将桌面软件包与 HOME 下的配置文件作为一个可维护的整体交付。
 
 ## Profile 中包含什么
 

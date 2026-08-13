@@ -11,6 +11,10 @@
     "message": "Usage",
     "description": "The label for category '使用' in sidebar 'docs'"
   },
+  "sidebar.docs.category.桌面指南": {
+    "message": "Desktop guides",
+    "description": "The label for category '桌面指南' in sidebar 'docs'"
+  },
   "sidebar.docs.category.系统维护": {
     "message": "System maintenance",
     "description": "The label for category '系统维护' in sidebar 'docs'"

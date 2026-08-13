@@ -6,7 +6,7 @@ description: Select, update and maintain CatOS desktop Profiles with Catdot, inc
 
 # Catdot Profiles
 
-Catdot switches complete CatOS user-configuration Profiles. In CatOS 2026.08.05, Niri + DMS, Niri + Noctalia, Sway, Labwc and Wayfire use it to deliver desktop packages and HOME configuration as one maintainable unit.
+Catdot switches complete CatOS user-configuration Profiles. In the current CatOS package repositories, Niri + DMS, Niri + Noctalia, Sway, Labwc and Wayfire use it to deliver desktop packages and HOME configuration as one maintainable unit.
 
 ## What a Profile contains
 

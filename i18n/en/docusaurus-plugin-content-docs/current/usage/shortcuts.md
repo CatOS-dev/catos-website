@@ -23,6 +23,6 @@ Shortcuts depend on the selected desktop environment. The table below mainly des
 
 ![Shortcut settings](/img/docs/shortcut.png)
 
-In Plasma, edit shortcuts under System Settings → Keyboard → Shortcuts. Other desktops have different defaults; see [Desktop environments and window managers](../desktops.md).
+In Plasma, edit shortcuts under System Settings → Keyboard → Shortcuts. CatOS Niri defaults are documented separately in [Niri + DMS](../desktops/niri-dms.md) and [Niri + Noctalia](../desktops/niri-noctalia.md). Other desktops have different defaults; see [Desktop environments and window managers](../desktops.md).
 
 Fcitx shortcuts are documented separately in [Using and troubleshooting Fcitx5](./input-method.md).

@@ -1,12 +1,12 @@
 ---
 title: Secure Boot
 sidebar_position: 2
-description: Understand the CatOS 2026.08.05 Secure Boot chain, supported boot methods, machine keys and update maintenance.
+description: Understand the CatOS Secure Boot chain, supported boot methods, machine keys, and rolling-update maintenance.
 ---
 
 # Secure Boot
 
-CatOS 2026.08.05 adds a Secure Boot chain to the release images and uses `catos-secureboot` to manage the installed system lifecycle.
+Current CatOS release images support the Secure Boot chain, while `catos-secureboot` manages the installed-system lifecycle. Later kernel, module, and boot-artifact changes are maintained through rolling package updates rather than requiring a new ISO.
 
 ## Supported boot methods
 

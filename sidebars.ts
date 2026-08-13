@@ -5,6 +5,11 @@ const sidebars: SidebarsConfig = {
     'intro',
     'why',
     'desktops',
+    {
+      type: 'category',
+      label: '桌面指南',
+      items: ['desktops/niri-dms', 'desktops/niri-noctalia'],
+    },
     'download',
     {
       type: 'category',
