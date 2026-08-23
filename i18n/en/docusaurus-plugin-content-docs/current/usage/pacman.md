@@ -53,4 +53,4 @@ With `pacman-contrib`, keep recent package-cache versions using:
 sudo paccache -r
 ```
 
-Do not run pacman, Discover, yay, and paru concurrently. Before touching `/var/lib/pacman/db.lck`, confirm that no package transaction is still active.
+Do not run pacman, Shelly, yay, and paru concurrently. Before touching `/var/lib/pacman/db.lck`, confirm that no package transaction is still active.

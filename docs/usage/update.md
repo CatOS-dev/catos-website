@@ -48,7 +48,7 @@ yay -Syu
 paru -Syu
 ```
 
-不要同时运行 pacman、Discover、yay、paru 等多个包管理前端。
+不要同时运行 pacman、Shelly、yay、paru 等多个包管理前端。
 
 ## 更新时应阅读什么
 
@@ -122,7 +122,7 @@ Linux 不要求每次更新都重启，但出现以下情况时建议重启：
 
 ### 数据库锁
 
-先确认没有 pacman、Discover、yay 或 paru 正在运行。不要在包管理器工作时删除 `/var/lib/pacman/db.lck`。
+先确认没有 pacman、Shelly、yay 或 paru 正在运行。不要在包管理器工作时删除 `/var/lib/pacman/db.lck`。
 
 ### 镜像同步不一致
 

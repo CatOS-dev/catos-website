@@ -48,7 +48,7 @@ or:
 paru -Syu
 ```
 
-Do not run pacman, Discover, yay, paru, or other package-management frontends concurrently.
+Do not run pacman, Shelly, yay, paru, or other package-management frontends concurrently.
 
 ## What to read during an update
 
@@ -122,7 +122,7 @@ Before rebooting, confirm that the package transaction, DKMS builds, and boot-ch
 
 ### Package database lock
 
-Confirm that pacman, Discover, yay, or paru is not still running. Do not remove `/var/lib/pacman/db.lck` while a package manager is active.
+Confirm that pacman, Shelly, yay, or paru is not still running. Do not remove `/var/lib/pacman/db.lck` while a package manager is active.
 
 ### Mirror synchronization mismatch
 

@@ -75,7 +75,7 @@ yay -Syu
 paru -Syu
 ```
 
-不要在另一个终端同时运行 `pacman -Syu` 或 Discover 更新任务。
+不要在另一个终端同时运行 `pacman -Syu` 或 Shelly 更新任务。
 
 AUR 包是在本机针对当时的软件库构建的。系统共享库、Python、Electron、内核或其他 ABI 发生较大变化后，某些 AUR 包可能需要重新构建；遇到“软件包仍已安装但程序无法加载库”的情况，应检查它是否属于 AUR/本地构建来源。
 

@@ -75,7 +75,7 @@ or:
 paru -Syu
 ```
 
-Do not run `pacman -Syu` or a Discover update concurrently in another terminal or session.
+Do not run `pacman -Syu` or a Shelly update concurrently in another terminal or session.
 
 AUR packages are built locally against the libraries available at build time. Large changes to shared libraries, Python, Electron, kernels, or other ABIs can require an AUR package rebuild. If a package is still installed but suddenly cannot load a library, check whether it came from the AUR or another local build.
 

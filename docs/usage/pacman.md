@@ -99,7 +99,7 @@ sudo paccache -r
 
 ## pacman 被其他程序占用
 
-Discover、pacman、yay 和 paru 不能同时修改软件包数据库。遇到数据库锁时，先确认没有更新程序仍在运行：
+Shelly、pacman、yay 和 paru 不能同时修改软件包数据库。遇到数据库锁时，先确认没有更新程序仍在运行：
 
 ```bash
 pgrep -a pacman

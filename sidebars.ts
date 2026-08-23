@@ -27,7 +27,7 @@ const sidebars: SidebarsConfig = {
         'usage/display-protocols',
         'usage/input-method',
         'usage/pacman',
-        'usage/discover',
+        'usage/shelly',
         'usage/aur',
         'usage/update',
         'usage/catdot',
