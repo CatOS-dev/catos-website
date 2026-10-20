@@ -10,6 +10,12 @@ CatOS is distributed as an ISO image. The current release is **CatOS 2026.08.05*
 
 After downloading, verify both the filename and the SHA-256 checksum.
 
+:::tip Already running CatOS?
+
+CatOS is a rolling release. You do not need to download a new ISO to receive regular package improvements. See the [October 2026 rolling changelog](/en/news/2026-10-20-rolling) for recent repository updates. The image versions and checksums on this page change only when new public images are actually released.
+
+:::
+
 ## Choosing the correct image
 
 The main difference is the NVIDIA driver and boot environment. Choose based on the discrete GPU actually installed in the machine. On a hybrid-graphics laptop, the presence of an Intel or AMD integrated GPU does not change the choice: use the NVIDIA GPU model to decide.

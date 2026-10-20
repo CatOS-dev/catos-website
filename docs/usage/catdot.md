@@ -26,6 +26,25 @@ catdot current
 catdot show catos-niri-dms
 ```
 
+在切换前，可以先查看将执行的操作：
+
+```bash
+catdot plan catos-niri-dms
+```
+
+`plan` 会预览待安装的软件包、配置路径的写入与删除，以及可能被替换的已有文件。**该命令只生成计划，不会执行安装或修改用户配置。**
+
+如果需要给其他程序读取结构化结果，可以使用：
+
+```bash
+catdot list --json
+catdot current --json
+catdot show catos-niri-dms --json
+catdot plan catos-niri-dms --json
+```
+
+CatOS Hello 也使用上述接口提供桌面 Profile 切换预览，参阅 [CatOS Hello](./hello.md)。
+
 选择 Niri + DMS：
 
 ```bash
@@ -103,9 +122,10 @@ Catdot 的软件包归属记录是按用户保存的，并不会在多个用户�
 ## 相关命令
 
 ```text
-catdot list
-catdot show PROFILE
-catdot current
+catdot list [--json]
+catdot show PROFILE [--json]
+catdot current [--json]
+catdot plan PROFILE [--json]
 catdot select PROFILE [--packages=install|verify]
 catdot update [PROFILE]
 catdot remove PROFILE

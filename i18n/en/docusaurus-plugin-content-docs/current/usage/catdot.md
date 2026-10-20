@@ -22,6 +22,25 @@ catdot current
 catdot show catos-niri-dms
 ```
 
+Before switching, preview the planned operation:
+
+```bash
+catdot plan catos-niri-dms
+```
+
+`plan` previews packages to install, configuration paths to write or remove, and existing files that might be replaced. **It only generates a plan; it does not install packages or modify user configuration.**
+
+Other applications can consume structured JSON results:
+
+```bash
+catdot list --json
+catdot current --json
+catdot show catos-niri-dms --json
+catdot plan catos-niri-dms --json
+```
+
+CatOS Hello uses these interfaces for desktop Profile previews; see the [CatOS Hello guide](./hello.md).
+
 Select Niri + DMS:
 
 ```bash
@@ -99,9 +118,10 @@ Catdot package ownership is per-user and is not combined into a system-wide refe
 ## Command reference
 
 ```text
-catdot list
-catdot show PROFILE
-catdot current
+catdot list [--json]
+catdot show PROFILE [--json]
+catdot current [--json]
+catdot plan PROFILE [--json]
 catdot select PROFILE [--packages=install|verify]
 catdot update [PROFILE]
 catdot remove PROFILE

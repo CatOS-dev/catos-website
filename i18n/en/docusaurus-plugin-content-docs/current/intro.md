@@ -42,6 +42,15 @@ Several Wayland environments use [Catdot](./usage/catdot.md) Profiles for user c
 
 See [Desktop environments and window managers](./desktops.md) for the complete list.
 
+## Welcome center and software management
+
+The CatOS repositories provide two graphical entry points:
+
+- [CatOS Hello](./usage/hello.md) offers installation tools in Live sessions and desktop Profile previews, mirror configuration, and maintenance tools on installed systems;
+- [Shelly](./usage/shelly.md) manages packages from configured repositories, AUR, and other supported software sources.
+
+These applications continue to improve through rolling updates. The versions bundled with existing installation media may be older than the current CatOS repository packages. See the [October 2026 changelog](/en/news/2026-10-20-rolling) for recent changes.
+
 ## Boot chain and Secure Boot
 
 CatOS 2026.08.05 release images support UEFI Secure Boot. When installation takes place in a Secure Boot environment, the installer can prepare a signed installed-system chain for supported boot methods, while `catos-secureboot` maintains signatures for kernels, external modules, and EFI boot artifacts afterward.

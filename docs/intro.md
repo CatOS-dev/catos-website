@@ -42,6 +42,15 @@ KDE Plasma 是默认且测试覆盖最完整的桌面选项；同时也提供 GN
 
 完整列表见[桌面环境与窗口管理器](./desktops.md)。
 
+## 欢迎中心与软件管理
+
+CatOS 软件仓库提供 **CatOS Hello** 和 **Shelly** 两个图形入口：
+
+- [CatOS Hello](./usage/hello.md)：根据 Live 环境或已安装系统提供安装、桌面 Profile 预览、镜像源和系统维护入口；
+- [Shelly](./usage/shelly.md)：管理仓库、AUR 等软件来源，并提供图形化的软件安装与更新操作。
+
+这些工具随滚动更新持续改进，安装介质中预装的版本可能早于当前 CatOS 软件仓库版本。有关近期变化，参阅 [2026 年 10 月更新日志](/news/2026-10-20-rolling)。
+
 ## 启动链与 Secure Boot
 
 CatOS 2026.08.05 的发布镜像支持 UEFI Secure Boot。安装器在 Secure Boot 环境中可以为受支持的启动方式建立安装后签名链，并由 `catos-secureboot` 继续维护内核、外部模块和 EFI 启动文件的签名状态。

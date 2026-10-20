@@ -335,11 +335,17 @@
   "home.hero.learn": {
     "message": "Learn more ↗"
   },
+  "home.hero.latestLabel": {
+    "message": "October 2026 rolling updates"
+  },
+  "home.hero.latestAction": {
+    "message": "Read the changelog"
+  },
   "home.feature.ready.title": {
     "message": "Ready to use"
   },
   "home.feature.ready.description": {
-    "message": "Finish installing and enter a complete desktop. Input methods, practical components, repositories, and hardware support do not need to be assembled from scratch."
+    "message": "Start with a complete desktop and use CatOS Hello and Shelly to manage the system and software. Input methods and hardware setup need not be assembled from scratch."
   },
   "home.feature.ready.alt": {
     "message": "Ready-to-use icon"

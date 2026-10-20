@@ -42,7 +42,7 @@ export default function Home(): ReactNode {
       title: translate({id: 'home.feature.ready.title', message: '开箱即用'}),
       description: translate({
         id: 'home.feature.ready.description',
-        message: '完成安装即可进入配置完整的桌面环境。中文输入、常用组件、软件源和硬件支持不必再从零拼装。',
+        message: '安装后即可使用完整的桌面环境，并通过 CatOS Hello 和 Shelly 管理系统与软件。中文输入和硬件配置不必从零拼装。',
       }),
       icon: '/img/out_of_box.svg',
       alt: translate({id: 'home.feature.ready.alt', message: '开箱即用图标'}),
@@ -107,6 +107,13 @@ export default function Home(): ReactNode {
                 <Translate id="home.hero.learn">了解更多 ↗️</Translate>
               </Link>
             </div>
+            <p className={styles.heroLatest}>
+              <Translate id="home.hero.latestLabel">2026 年 10 月滚动更新</Translate>
+              <span aria-hidden="true"> · </span>
+              <Link to="/news/2026-10-20-rolling">
+                <Translate id="home.hero.latestAction">查看更新日志</Translate>
+              </Link>
+            </p>
           </div>
         </header>
 
