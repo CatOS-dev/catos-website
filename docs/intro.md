@@ -34,9 +34,9 @@ CatOS 2026.08.05 提供两条安装路径：
 
 ## 桌面不是只有一种
 
-安装器当前提供 **16 种图形桌面或窗口管理器方案**，以及 **No Desktop** 基础系统选项。
+安装器当前提供 **17 种图形桌面或窗口管理器方案**，以及 **No Desktop** 基础系统选项。
 
-KDE Plasma 是默认且测试覆盖最完整的桌面选项；同时也提供 GNOME、Xfce、Cinnamon、COSMIC、Deepin，以及 Niri + DMS、Niri + Noctalia、Hyprland + DMS、Sway、Labwc、Wayfire 等不同工作流。
+KDE Plasma 是默认且测试覆盖最完整的桌面选项；同时也提供 GNOME、Xfce、Cinnamon、COSMIC、Deepin、GXDE，以及 Niri + DMS、Niri + Noctalia、Hyprland + DMS、Sway、Labwc、Wayfire 等不同工作流。
 
 部分 Wayland 桌面使用 [Catdot](./usage/catdot.md) Profile 管理用户配置。Catdot 会区分发行版管理的配置和一次性种子文件，并在覆盖用户配置前创建备份。
 
