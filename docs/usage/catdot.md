@@ -54,7 +54,7 @@ catdot select catos-niri-dms
 选择 Niri + Noctalia：
 
 ```bash
-catdot select catos-niri-noctaliav5
+catdot select catos-niri-noctalia
 ```
 
 `catdot select` 默认会通过 Pacman 安装 Profile 声明的软件包。安装器已经完成软件包部署时，可以使用：

@@ -30,7 +30,7 @@ CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管�
 | 选项 | 定位 | CatOS 定制情况 |
 | --- | --- | --- |
 | **Niri + DMS** | 使用 Dank Material Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-dms` Catdot Profile 管理 Niri、Portal、GTK 基线和桌面工具 |
-| **Niri + Noctalia** | 使用 Noctalia Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-noctaliav5` Catdot Profile，并可使用 Noctalia Greeter |
+| **Niri + Noctalia** | 使用 Noctalia Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-noctalia` Catdot Profile，并可使用 Noctalia Greeter |
 | **Hyprland + DMS** | 使用 Dank Material Shell 的动态平铺式 Wayland 桌面 | 由安装器组合 Hyprland、DMS 和通用桌面组件；专用定制仍在持续整理 |
 | **Sway** | 稳定、键盘驱动的平铺式 Wayland 环境 | 使用独立的 [Sway 设置](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile，并使用 [Waybar 设置](https://github.com/CatOS-dev/catos-waybar-settings) |
 | **Labwc** | 受 Openbox 启发的轻量 Wayland 浮动桌面 | 使用独立的 [Labwc 设置](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile，并使用 Waybar 通用配置 |
@@ -90,11 +90,11 @@ Catdot 会先备份 managed 文件，seed 文件不会被重新覆盖。Profile 
 
 ### Niri + Noctalia
 
-Niri + Noctalia 使用相同的 Niri 窗口管理模型，由 Noctalia 提供面板、启动器、控制中心、通知、剪贴板和主题等 Shell 功能。当前正式仓库通过 `catos-niri-noctaliav5` Profile 交付。
+Niri + Noctalia 使用相同的 Niri 窗口管理模型，由 Noctalia 提供面板、启动器、控制中心、通知、剪贴板和主题等 Shell 功能。当前正式仓库通过 `catos-niri-noctalia` Profile 交付。
 
 ```bash
 catdot current
-catdot select catos-niri-noctaliav5
+catdot select catos-niri-noctalia
 ```
 
 当前正式发布的 Profile 管理：
@@ -126,7 +126,7 @@ catdot select catos-niri-noctaliav5
 接受新版 Profile 配置：
 
 ```bash
-catdot update catos-niri-noctaliav5
+catdot update catos-niri-noctalia
 ```
 
 如果系统使用 Noctalia Greeter，它属于登录阶段组件；桌面内的 Noctalia Shell 是独立的用户会话组件。输入法、屏幕共享和 XWayland 问题同样可参阅[显示协议排查](./usage/display-protocols.md)。
@@ -178,7 +178,7 @@ No Desktop 不代表安装失败。安装完成后可以通过 `pacman` 或 AUR 
 - [catos-wayfire-settings](https://github.com/CatOS-dev/catos-wayfire-settings)：Wayfire 会话配置；
 - [catos-waybar-settings](https://github.com/CatOS-dev/catos-waybar-settings)：多个 Wayland 会话共享的 Waybar 配置；
 - [catos-niri-dms](https://github.com/CatOS-dev/catos-niri-dms)：Niri + DMS 的 Catdot Profile；
-- [catos-niri-noctaliav5](https://github.com/CatOS-dev/catos-niri-noctaliav5)：Niri + Noctalia 的 Catdot Profile；
+- [catos-niri-noctalia](https://github.com/CatOS-dev/catos-niri-noctalia)：Niri + Noctalia 的 Catdot Profile；
 - [catos-gtk-settings](https://github.com/CatOS-dev/catos-gtk-settings)：GTK 桌面共享的主题和基础设置；
 - [catos-kde-theme](https://github.com/CatOS-dev/catos-kde-theme)：CatOS KDE 主题资源。
 

@@ -30,7 +30,7 @@ The customization depth is not identical for every option. Some desktops have de
 | Choice | Intended use | CatOS customization |
 | --- | --- | --- |
 | **Niri + DMS** | A scrolling tiling Wayland desktop using Dank Material Shell | Uses the dedicated `catos-niri-dms` Catdot Profile for Niri, portals, the GTK baseline, and desktop tools |
-| **Niri + Noctalia** | A scrolling tiling Wayland desktop using Noctalia Shell | Uses the dedicated `catos-niri-noctaliav5` Catdot Profile and can use Noctalia Greeter |
+| **Niri + Noctalia** | A scrolling tiling Wayland desktop using Noctalia Shell | Uses the dedicated `catos-niri-noctalia` Catdot Profile and can use Noctalia Greeter |
 | **Hyprland + DMS** | A dynamic tiling Wayland desktop using Dank Material Shell | Assembled by the installer from Hyprland, DMS, and common desktop components; dedicated customization is still being organized |
 | **Sway** | A stable, keyboard-driven tiling Wayland environment | Uses the dedicated [Sway settings](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile, plus [Waybar settings](https://github.com/CatOS-dev/catos-waybar-settings) |
 | **Labwc** | A lightweight floating Wayland desktop inspired by Openbox | Uses the dedicated [Labwc settings](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile, plus shared Waybar configuration |
@@ -90,11 +90,11 @@ Catdot backs up managed files before replacement and does not overwrite the seed
 
 ### Niri + Noctalia
 
-Niri + Noctalia uses the same Niri window model while Noctalia provides the panel, launcher, control center, notifications, clipboard, theming, and other shell functions. The current CatOS repository delivers it through the `catos-niri-noctaliav5` Profile.
+Niri + Noctalia uses the same Niri window model while Noctalia provides the panel, launcher, control center, notifications, clipboard, theming, and other shell functions. The current CatOS repository delivers it through the `catos-niri-noctalia` Profile.
 
 ```bash
 catdot current
-catdot select catos-niri-noctaliav5
+catdot select catos-niri-noctalia
 ```
 
 The currently published Profile manages:
@@ -126,7 +126,7 @@ Common defaults:
 Accept a newer Profile revision with:
 
 ```bash
-catdot update catos-niri-noctaliav5
+catdot update catos-niri-noctalia
 ```
 
 If the system uses Noctalia Greeter, it is a login-stage component; the Noctalia shell inside the desktop session is separate. Input-method, screen-sharing, and XWayland problems are covered in [Display protocol troubleshooting](./usage/display-protocols.md).
@@ -178,7 +178,7 @@ Useful entry points:
 - [catos-wayfire-settings](https://github.com/CatOS-dev/catos-wayfire-settings): Wayfire session configuration;
 - [catos-waybar-settings](https://github.com/CatOS-dev/catos-waybar-settings): shared Waybar configuration for multiple Wayland sessions;
 - [catos-niri-dms](https://github.com/CatOS-dev/catos-niri-dms): the Niri + DMS Catdot Profile;
-- [catos-niri-noctaliav5](https://github.com/CatOS-dev/catos-niri-noctaliav5): the Niri + Noctalia Catdot Profile;
+- [catos-niri-noctalia](https://github.com/CatOS-dev/catos-niri-noctalia): the Niri + Noctalia Catdot Profile;
 - [catos-gtk-settings](https://github.com/CatOS-dev/catos-gtk-settings): shared GTK theme and base settings;
 - [catos-kde-theme](https://github.com/CatOS-dev/catos-kde-theme): CatOS KDE theme resources.
 

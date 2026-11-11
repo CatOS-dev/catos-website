@@ -50,7 +50,7 @@ catdot select catos-niri-dms
 Select Niri + Noctalia:
 
 ```bash
-catdot select catos-niri-noctaliav5
+catdot select catos-niri-noctalia
 ```
 
 `catdot select` installs declared packages through Pacman by default. When an installer has already deployed packages, use:
