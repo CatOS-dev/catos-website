@@ -6,7 +6,7 @@ description: Desktop choices, Wayland workflows, and customization repositories 
 
 # Desktop environments and window managers
 
-The advanced CatOS installation configuration can select a desktop environment or window manager during installation. It currently provides **16 graphical choices**, as well as **No Desktop** for a base system without a graphical interface.
+The advanced CatOS installation configuration can select a desktop environment or window manager during installation. It currently provides **20 graphical choices**, as well as **No Desktop** for a base system without a graphical interface.
 
 The customization depth is not identical for every option. Some desktops have dedicated CatOS configuration repositories, while others primarily use upstream defaults together with shared CatOS GTK, icon, font, or common-tool settings.
 
@@ -17,6 +17,9 @@ The customization depth is not identical for every option. Some desktops have de
 | **KDE Plasma** | A complete and highly customizable Qt desktop; the current default | Dedicated [KDE settings](https://github.com/CatOS-dev/catos-kde-settings) and [KDE theme](https://github.com/CatOS-dev/catos-kde-theme) repositories |
 | **GNOME** | A modern desktop focused on consistency and an integrated workflow | Dedicated [GNOME settings](https://github.com/CatOS-dev/catos-gnome-settings), plus shared [GTK settings](https://github.com/CatOS-dev/catos-gtk-settings) |
 | **Deepin Desktop** | A complete desktop with tightly integrated components | Primarily upstream Deepin components and installer presets |
+| **GXDE** | A desktop with a classic Deepin-style interface | GXDE desktop components and a dedicated display manager |
+| **Denial** | Another complete desktop environment | Installed through the CatOS desktop selection |
+| **Pantheon** | A complete desktop with a simple layout | Pantheon session, dock, and applications |
 | **Xfce** | A traditional desktop with relatively low resource usage | Dedicated [Xfce settings](https://github.com/CatOS-dev/catos-xfce-settings), plus shared GTK configuration |
 | **Cinnamon** | A familiar, traditional desktop based on GTK | Primarily upstream components and shared GTK configuration |
 | **COSMIC** | A modern Wayland desktop written primarily in Rust | Primarily upstream components and installer presets |
@@ -29,16 +32,19 @@ The customization depth is not identical for every option. Some desktops have de
 
 | Choice | Intended use | CatOS customization |
 | --- | --- | --- |
-| **Niri + DMS** | A scrolling tiling Wayland desktop using Dank Material Shell | Uses the dedicated `catos-niri-dms` Catdot Profile for Niri, portals, the GTK baseline, and desktop tools |
+| **Niri + Dux** | A scrolling tiling Wayland desktop using Dux Shell | Provided by `catos-niri-dux`; the Catdot Profile ID remains `catos-niri-dms` |
 | **Niri + Noctalia** | A scrolling tiling Wayland desktop using Noctalia Shell | Uses the dedicated `catos-niri-noctalia` Catdot Profile and can use Noctalia Greeter |
-| **Hyprland + DMS** | A dynamic tiling Wayland desktop using Dank Material Shell | Assembled by the installer from Hyprland, DMS, and common desktop components; dedicated customization is still being organized |
+| **Hyprland + Dux** | A dynamic tiling Wayland desktop using Dux Shell | Provided by `catos-hyprland-dux`; the Catdot Profile ID remains `catos-hyprland-dms` |
+| **Hyprland + Noctalia** | A dynamic tiling Wayland desktop using Noctalia Shell | Uses the `catos-hyprland-noctalia` desktop preset |
 | **Sway** | A stable, keyboard-driven tiling Wayland environment | Uses the dedicated [Sway settings](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile, plus [Waybar settings](https://github.com/CatOS-dev/catos-waybar-settings) |
 | **Labwc** | A lightweight floating Wayland desktop inspired by Openbox | Uses the dedicated [Labwc settings](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile, plus shared Waybar configuration |
 | **Wayfire** | A lightweight floating Wayland environment with desktop effects | Uses the dedicated [Wayfire settings](https://github.com/CatOS-dev/catos-wayfire-settings) Catdot Profile |
 
-### Niri + DMS
+### Niri + Dux
 
-Niri manages scrolling-tiling windows and workspaces, while Dank Material Shell (DMS) provides the launcher, settings, notifications, clipboard, lock screen, wallpaper controls, and other shell functions. The current CatOS repository delivers this setup through the `catos-niri-dms` Profile, with [Catdot](./usage/catdot.md) managing distribution-owned user configuration.
+Niri manages scrolling-tiling windows and workspaces, while Dux Shell provides the launcher, settings, notifications, clipboard, lock screen, wallpaper controls, and other shell functions. The current CatOS repository delivers this setup through the `catos-niri-dux` package, with [Catdot](./usage/catdot.md) managing distribution-owned user configuration.
+
+For compatibility with existing user configurations, the Catdot Profile ID remains `catos-niri-dms`. The commands and user paths below have therefore not changed.
 
 Check or reselect the Profile with:
 
@@ -68,11 +74,11 @@ Use them for input devices, displays, and personal window rules respectively. Li
 
 Common defaults:
 
-| Action | Niri + DMS |
+| Action | Niri + Dux |
 | --- | --- |
-| DMS launcher | `Mod` + `Space` |
+| Dux launcher | `Mod` + `Space` |
 | Ghostty | `Mod` + `T` |
-| DMS settings | `Mod` + `,` |
+| Dux settings | `Mod` + `,` |
 | Clipboard | `Mod` + `V` |
 | Overview | `Mod` + `O` / `Mod` + `Tab` |
 | Close window | `Mod` + `Q` |
@@ -107,7 +113,7 @@ The currently published Profile manages:
 ~/.config/xdg-desktop-portal/niri-portals.conf
 ```
 
-Unlike the DMS Profile, the currently published Noctalia Profile **does not expose `input.kdl`, `outputs.kdl`, and `rules.kdl` as stable user seed interfaces**. Direct edits to managed Niri files may need to be merged manually after a future `catdot update`; Catdot creates a backup before replacement.
+Unlike the Niri + Dux configuration, the currently published Noctalia Profile **does not expose `input.kdl`, `outputs.kdl`, and `rules.kdl` as stable user seed interfaces**. Direct edits to managed Niri files may need to be merged manually after a future `catdot update`; Catdot creates a backup before replacement.
 
 Common defaults:
 
@@ -152,7 +158,7 @@ No Desktop does not indicate an incomplete installation. Any desktop components 
 - For the most complete default experience and the broadest customization options, choose **KDE Plasma**.
 - For a focused and consistent workflow, choose **GNOME**.
 - For lower-resource systems or a traditional desktop, choose **Xfce, LXQt, LXDE, or MATE**.
-- For a modern scrolling tiling workflow, choose **Niri + DMS** or **Niri + Noctalia**.
+- For a modern scrolling tiling workflow, choose **Niri + Dux** or **Niri + Noctalia**.
 - For a keyboard-driven tiling environment, choose **Sway**.
 - For a lightweight floating Wayland desktop, choose **Labwc or Wayfire**.
 - For complete manual control, choose **No Desktop**.
@@ -177,7 +183,7 @@ Useful entry points:
 - [catos-labwc-settings](https://github.com/CatOS-dev/catos-labwc-settings): Labwc session configuration;
 - [catos-wayfire-settings](https://github.com/CatOS-dev/catos-wayfire-settings): Wayfire session configuration;
 - [catos-waybar-settings](https://github.com/CatOS-dev/catos-waybar-settings): shared Waybar configuration for multiple Wayland sessions;
-- [catos-niri-dms](https://github.com/CatOS-dev/catos-niri-dms): the Niri + DMS Catdot Profile;
+- [catos-niri-dux](https://github.com/CatOS-dev/catos-niri-dux): the Niri + Dux Catdot Profile;
 - [catos-niri-noctalia](https://github.com/CatOS-dev/catos-niri-noctalia): the Niri + Noctalia Catdot Profile;
 - [catos-gtk-settings](https://github.com/CatOS-dev/catos-gtk-settings): shared GTK theme and base settings;
 - [catos-kde-theme](https://github.com/CatOS-dev/catos-kde-theme): CatOS KDE theme resources.

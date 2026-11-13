@@ -9,7 +9,7 @@ description: Understand CatOS, its rolling-release model, installation media, de
 
 CatOS is an **open-source, Arch Linux-based distribution for desktop and everyday use**. It keeps the Arch rolling-release model, `pacman`, AUR, and standard system layout while packaging the installer, repositories, hardware support, desktop presets, themes, and system integration as a complete distribution.
 
-The newest installation media currently listed on the download page is **CatOS 2026.08.05**. CatOS itself is rolling release, so except for release notes, ISO downloads, and media-specific installation details, the usage, desktop, and maintenance documentation tracks the **currently published packages in the CatOS repositories** rather than freezing at the ISO build date.
+The newest installation media currently listed on the download page is **CatOS 2026.11.12**. CatOS itself is rolling release, so except for release notes, ISO downloads, and media-specific installation details, the usage, desktop, and maintenance documentation tracks the **currently published packages in the CatOS repositories** rather than freezing at the ISO build date.
 
 ## What CatOS is intended to solve
 
@@ -25,7 +25,7 @@ CatOS does not hide the underlying Arch system. After installation you can still
 
 ## Two installation paths
 
-CatOS 2026.08.05 provides two installation workflows:
+CatOS 2026.11.12 provides two installation workflows:
 
 - **Offline installation** copies the Live system to the target disk. It is intended for a fast default installation or situations where installation-time networking is unavailable.
 - **Online installation** deploys packages according to your choices and can select the desktop, boot method, kernels, repositories, shell, development and virtualization components, and additional software.
@@ -34,9 +34,9 @@ Both workflows use Calamares and share the core partitioning, user, boot, and Se
 
 ## More than one desktop
 
-The installer currently provides **16 graphical desktop or window-manager choices**, plus a **No Desktop** base-system option.
+The installer currently provides **20 graphical desktop or window-manager choices**, plus a **No Desktop** base-system option.
 
-KDE Plasma is the default option and has the broadest CatOS test coverage. Other choices include GNOME, Xfce, Cinnamon, COSMIC, Deepin, Niri + DMS, Niri + Noctalia, Hyprland + DMS, Sway, Labwc, and Wayfire.
+KDE Plasma is the default option. Other choices include GNOME, Xfce, Cinnamon, COSMIC, Deepin, GXDE, Denial, Pantheon, Niri + Dux, Niri + Noctalia, Hyprland + Dux, Hyprland + Noctalia, Sway, Labwc, and Wayfire.
 
 Several Wayland environments use [Catdot](./usage/catdot.md) Profiles for user configuration. Catdot distinguishes distribution-managed configuration from one-time seed files and creates backups before replacing user-owned configuration.
 
@@ -49,11 +49,11 @@ The CatOS repositories provide two graphical entry points:
 - [CatOS Hello](./usage/hello.md) offers installation tools in Live sessions and desktop Profile previews, mirror configuration, and maintenance tools on installed systems;
 - [Shelly](./usage/shelly.md) manages packages from configured repositories, AUR, and other supported software sources.
 
-These applications continue to improve through rolling updates. The versions bundled with existing installation media may be older than the current CatOS repository packages. See the [October 2026 changelog](/en/news/2026-10-20-rolling) for recent changes.
+These applications continue to improve through rolling updates. The versions bundled with existing installation media may be older than the current CatOS repository packages. See the [CatOS 2026.11.12 release notes](/en/news/2026-11-12-release) for this image release.
 
 ## Boot chain and Secure Boot
 
-CatOS 2026.08.05 release images support UEFI Secure Boot. When installation takes place in a Secure Boot environment, the installer can prepare a signed installed-system chain for supported boot methods, while `catos-secureboot` maintains signatures for kernels, external modules, and EFI boot artifacts afterward.
+CatOS installation images support UEFI Secure Boot. When installation takes place in a Secure Boot environment, the installer can prepare a signed installed-system chain for supported boot methods, while `catos-secureboot` maintains signatures for kernels, external modules, and EFI boot artifacts afterward.
 
 Online installation currently provides six boot methods: GRUB, Limine, rEFInd, systemd-boot, UKI, and EFI Stub. GRUB, Limine, systemd-boot, and UKI support CatOS automatic Secure Boot integration.
 

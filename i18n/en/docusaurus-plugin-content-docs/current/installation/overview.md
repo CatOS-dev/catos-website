@@ -6,7 +6,7 @@ description: Choose offline or online installation and review the important deci
 
 # Install CatOS
 
-CatOS 2026.08.05 provides **offline installation** and **online installation**. Both use the Calamares graphical installer, but they differ in system source, customization and driver handling.
+CatOS 2026.11.12 provides **offline installation** and **online installation**. Both use the Calamares graphical installer, but they differ in system source, customization and driver handling.
 
 ## Choose an installation mode
 
@@ -25,7 +25,7 @@ Choose [offline installation](./offline-installation.md) for a quick default ins
 
 Choose [online installation](./online-installation.md) when you want to select repositories, boot method, desktop, kernels and additional software.
 
-CatOS 2026.08.05 release images support Secure Boot. When the live environment itself was started with Secure Boot enabled, the installer only offers boot methods for which it can automatically prepare the installed system. See [Secure Boot](/en/docs/system/secure-boot).
+Current release images support Secure Boot. When the live environment itself was started with Secure Boot enabled, the installer only offers boot methods for which it can automatically prepare the installed system. See [Secure Boot](/en/docs/system/secure-boot).
 
 ## Before installing
 

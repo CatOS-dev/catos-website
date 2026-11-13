@@ -6,7 +6,7 @@ description: 选择离线或在线安装方式，并了解安装前需要确认�
 
 # 安装 CatOS
 
-CatOS 2026.08.05 提供**离线安装**和**在线安装**两种方式。两者都使用 Calamares 图形安装器，但系统来源、可选项目和驱动配置流程不同。
+CatOS 2026.11.12 提供**离线安装**和**在线安装**两种方式。两者都使用 Calamares 图形安装器，但系统来源、可选项目和驱动配置流程不同。
 
 ## 选择安装方式
 
@@ -44,7 +44,7 @@ CatOS 2026.08.05 提供**离线安装**和**在线安装**两种方式。两者�
 
 继续阅读：[在线安装](./online-installation.md)。
 
-CatOS 2026.08.05 的发布镜像支持 Secure Boot。安装器检测到当前 Live 环境以 Secure Boot 启动时，会只显示能够自动完成 Secure Boot 配置的启动方案。详见 [Secure Boot](/docs/system/secure-boot)。
+当前发布镜像支持 Secure Boot。安装器检测到当前 Live 环境以 Secure Boot 启动时，会只显示能够自动完成 Secure Boot 配置的启动方案。详见 [Secure Boot](/docs/system/secure-boot)。
 
 ## 安装前必须确认
 

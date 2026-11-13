@@ -108,9 +108,9 @@ export default function Home(): ReactNode {
               </Link>
             </div>
             <p className={styles.heroLatest}>
-              <Translate id="home.hero.latestLabel">2026 年 10 月滚动更新</Translate>
+              <Translate id="home.hero.latestLabel">CatOS 2026.11.12 正式发布</Translate>
               <span aria-hidden="true"> · </span>
-              <Link to="/news/2026-10-20-rolling">
+              <Link to="/news/2026-11-12-release">
                 <Translate id="home.hero.latestAction">查看更新日志</Translate>
               </Link>
             </p>

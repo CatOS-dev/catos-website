@@ -6,7 +6,7 @@ description: CatOS 安装器提供的桌面、Wayland 工作流和对应定制�
 
 # 桌面环境与窗口管理器
 
-CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管理器。当前提供 **16 种图形方案**，也可以选择 **No Desktop** 安装不带图形界面的基础系统。
+CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管理器。当前提供 **20 种图形方案**，也可以选择 **No Desktop** 安装不带图形界面的基础系统。
 
 不同选项的维护深度并不完全相同：部分桌面拥有独立的 CatOS 配置仓库，部分桌面主要使用上游默认组件并共享 CatOS 的 GTK、图标、字体或通用工具配置。
 
@@ -17,6 +17,9 @@ CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管�
 | **KDE Plasma** | 功能完整、可高度定制的 Qt 桌面，也是当前默认选项 | 维护独立的 [KDE 设置](https://github.com/CatOS-dev/catos-kde-settings) 与 [KDE 主题](https://github.com/CatOS-dev/catos-kde-theme) 仓库 |
 | **GNOME** | 注重一致性和工作流整合的现代桌面 | 维护独立的 [GNOME 设置](https://github.com/CatOS-dev/catos-gnome-settings)，并使用共享的 [GTK 设置](https://github.com/CatOS-dev/catos-gtk-settings) |
 | **Deepin Desktop** | 界面和组件高度整合的完整桌面 | 当前主要使用上游 Deepin 组件和安装器预设 |
+| **GXDE** | 延续经典 Deepin 界面风格的桌面 | 提供 GXDE 桌面组件和独立的登录管理器 |
+| **Denial** | 另一种完整桌面环境选择 | 通过安装器部署 Denial 桌面组件 |
+| **Pantheon** | 采用简洁布局的完整桌面环境 | 提供 Pantheon 会话、Dock 和应用组件 |
 | **Xfce** | 资源占用较低的传统桌面 | 维护独立的 [Xfce 设置](https://github.com/CatOS-dev/catos-xfce-settings)，并使用共享的 GTK 配置 |
 | **Cinnamon** | 使用 GTK、操作习惯传统的桌面 | 当前主要使用上游组件和共享的 GTK 配置 |
 | **COSMIC** | 主要使用 Rust 开发的现代 Wayland 桌面 | 当前主要使用上游组件和安装器预设 |
@@ -29,16 +32,19 @@ CatOS 的高级安装配置允许在安装阶段选择桌面环境或窗口管�
 
 | 选项 | 定位 | CatOS 定制情况 |
 | --- | --- | --- |
-| **Niri + DMS** | 使用 Dank Material Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-dms` Catdot Profile 管理 Niri、Portal、GTK 基线和桌面工具 |
+| **Niri + Dux** | 使用 Dux Shell 的滚动平铺式 Wayland 桌面 | 由 `catos-niri-dux` 软件包提供，Catdot Profile ID 保持为 `catos-niri-dms` |
 | **Niri + Noctalia** | 使用 Noctalia Shell 的滚动平铺式 Wayland 桌面 | 使用独立的 `catos-niri-noctalia` Catdot Profile，并可使用 Noctalia Greeter |
-| **Hyprland + DMS** | 使用 Dank Material Shell 的动态平铺式 Wayland 桌面 | 由安装器组合 Hyprland、DMS 和通用桌面组件；专用定制仍在持续整理 |
+| **Hyprland + Dux** | 使用 Dux Shell 的动态平铺式 Wayland 桌面 | 由 `catos-hyprland-dux` 软件包提供，Catdot Profile ID 保持为 `catos-hyprland-dms` |
+| **Hyprland + Noctalia** | 使用 Noctalia Shell 的动态平铺式 Wayland 桌面 | 使用 `catos-hyprland-noctalia` 桌面预设 |
 | **Sway** | 稳定、键盘驱动的平铺式 Wayland 环境 | 使用独立的 [Sway 设置](https://github.com/CatOS-dev/catos-sway-settings) Catdot Profile，并使用 [Waybar 设置](https://github.com/CatOS-dev/catos-waybar-settings) |
 | **Labwc** | 受 Openbox 启发的轻量 Wayland 浮动桌面 | 使用独立的 [Labwc 设置](https://github.com/CatOS-dev/catos-labwc-settings) Catdot Profile，并使用 Waybar 通用配置 |
 | **Wayfire** | 带有适度桌面特效的轻量 Wayland 浮动环境 | 使用独立的 [Wayfire 设置](https://github.com/CatOS-dev/catos-wayfire-settings) Catdot Profile |
 
-### Niri + DMS
+### Niri + Dux
 
-Niri 负责滚动平铺窗口与工作区，Dank Material Shell（DMS）提供启动器、设置、通知、剪贴板、锁屏、壁纸等桌面 Shell 功能。当前正式仓库通过 `catos-niri-dms` Profile 交付这套配置，并由 [Catdot](./usage/catdot.md) 管理发行版拥有的用户配置。
+Niri 负责滚动平铺窗口与工作区，Dux Shell 提供启动器、设置、通知、剪贴板、锁屏、壁纸等桌面功能。当前正式仓库通过 `catos-niri-dux` 软件包交付这套配置，并由 [Catdot](./usage/catdot.md) 管理发行版拥有的用户配置。
+
+为兼容已有用户配置，软件包更新后仍使用 `catos-niri-dms` 作为 Catdot Profile ID，因此下面的 Catdot 命令和用户配置路径保持不变。
 
 确认或重新选择 Profile：
 
@@ -68,11 +74,11 @@ Catdot 会持续管理 Niri 主配置、CatOS 基线、环境变量和 Portal，
 
 常用默认快捷键：
 
-| 操作 | Niri + DMS |
+| 操作 | Niri + Dux |
 | --- | --- |
-| DMS 应用启动器 | `Mod` + `Space` |
+| Dux 应用启动器 | `Mod` + `Space` |
 | Ghostty | `Mod` + `T` |
-| DMS 设置 | `Mod` + `,` |
+| Dux 设置 | `Mod` + `,` |
 | 剪贴板 | `Mod` + `V` |
 | Overview | `Mod` + `O` / `Mod` + `Tab` |
 | 关闭窗口 | `Mod` + `Q` |
@@ -107,7 +113,7 @@ catdot select catos-niri-noctalia
 ~/.config/xdg-desktop-portal/niri-portals.conf
 ```
 
-与 DMS Profile 不同，当前正式发布的 Noctalia Profile **没有把 `input.kdl`、`outputs.kdl`、`rules.kdl` 暴露为稳定的用户 seed 接口**。直接修改 managed Niri 文件时，应预期以后 `catdot update` 可能需要手工合并；Catdot 会在覆盖前留下备份。
+与 Niri + Dux 配置不同，当前正式发布的 Noctalia Profile **没有把 `input.kdl`、`outputs.kdl`、`rules.kdl` 暴露为稳定的用户 seed 接口**。直接修改 managed Niri 文件时，应预期以后 `catdot update` 可能需要手工合并；Catdot 会在覆盖前留下备份。
 
 常用默认快捷键：
 
@@ -152,7 +158,7 @@ No Desktop 不代表安装失败。安装完成后可以通过 `pacman` 或 AUR 
 - 希望获得完成度最高、定制选项最丰富的默认体验：选择 **KDE Plasma**。
 - 偏好统一、简洁的工作流：选择 **GNOME**。
 - 设备资源较少或偏好传统桌面：选择 **Xfce、LXQt、LXDE 或 MATE**。
-- 希望使用现代滚动平铺工作流：选择 **Niri + DMS** 或 **Niri + Noctalia**。
+- 希望使用现代滚动平铺工作流：选择 **Niri + Dux** 或 **Niri + Noctalia**。
 - 熟悉键盘驱动的平铺窗口管理：选择 **Sway**。
 - 希望获得轻量浮动 Wayland 桌面：选择 **Labwc 或 Wayfire**。
 - 希望完全自己配置：选择 **No Desktop**。
@@ -177,7 +183,7 @@ No Desktop 不代表安装失败。安装完成后可以通过 `pacman` 或 AUR 
 - [catos-labwc-settings](https://github.com/CatOS-dev/catos-labwc-settings)：Labwc 会话配置；
 - [catos-wayfire-settings](https://github.com/CatOS-dev/catos-wayfire-settings)：Wayfire 会话配置；
 - [catos-waybar-settings](https://github.com/CatOS-dev/catos-waybar-settings)：多个 Wayland 会话共享的 Waybar 配置；
-- [catos-niri-dms](https://github.com/CatOS-dev/catos-niri-dms)：Niri + DMS 的 Catdot Profile；
+- [catos-niri-dux](https://github.com/CatOS-dev/catos-niri-dux)：Niri + Dux 的 Catdot Profile；
 - [catos-niri-noctalia](https://github.com/CatOS-dev/catos-niri-noctalia)：Niri + Noctalia 的 Catdot Profile；
 - [catos-gtk-settings](https://github.com/CatOS-dev/catos-gtk-settings)：GTK 桌面共享的主题和基础设置；
 - [catos-kde-theme](https://github.com/CatOS-dev/catos-kde-theme)：CatOS KDE 主题资源。

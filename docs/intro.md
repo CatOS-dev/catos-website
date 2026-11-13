@@ -9,7 +9,7 @@ description: 了解 CatOS 的定位、滚动更新方式、安装介质、桌面
 
 CatOS 是一个**开源、基于 Arch Linux、面向桌面与日常使用场景**的 Linux 发行版。它保留 Arch Linux 的滚动更新、`pacman`、AUR 和标准系统结构，同时把安装器、软件仓库、硬件支持、桌面预设、主题与常用系统集成整理成可以直接部署的一套发行版。
 
-当前下载页提供的最新安装介质是 **CatOS 2026.08.05**。CatOS 本身采用滚动更新，因此除发布日志、ISO 下载和特定安装介质说明外，本站的使用、桌面和系统维护文档以 **CatOS 软件仓库当前发布的软件包状态**为准，而不是停留在 ISO 制作当天。
+当前下载页提供的最新安装介质是 **CatOS 2026.11.12**。CatOS 本身采用滚动更新，因此除发布日志、ISO 下载和特定安装介质说明外，本站的使用、桌面和系统维护文档以 **CatOS 软件仓库当前发布的软件包状态**为准，而不是停留在 ISO 制作当天。
 
 ## CatOS 解决什么问题
 
@@ -25,7 +25,7 @@ CatOS 不试图隐藏 Arch Linux。安装完成后仍然可以直接使用：
 
 ## 两种安装方式
 
-CatOS 2026.08.05 提供两条安装路径：
+CatOS 2026.11.12 提供两条安装路径：
 
 - **离线安装**：把 Live 系统复制到目标磁盘，适合希望快速获得与 Live 环境接近的默认系统，或安装时网络不可用的场景；
 - **在线安装**：按选择重新部署软件包，可选择桌面、启动方式、内核、软件源、Shell、开发/虚拟化组件和其他软件。
@@ -34,9 +34,9 @@ CatOS 2026.08.05 提供两条安装路径：
 
 ## 桌面不是只有一种
 
-安装器当前提供 **16 种图形桌面或窗口管理器方案**，以及 **No Desktop** 基础系统选项。
+安装器当前提供 **20 种图形桌面或窗口管理器方案**，以及 **No Desktop** 基础系统选项。
 
-KDE Plasma 是默认且测试覆盖最完整的桌面选项；同时也提供 GNOME、Xfce、Cinnamon、COSMIC、Deepin，以及 Niri + DMS、Niri + Noctalia、Hyprland + DMS、Sway、Labwc、Wayfire 等不同工作流。
+KDE Plasma 是默认桌面选项；同时还提供 GNOME、Xfce、Cinnamon、COSMIC、Deepin、GXDE、Denial、Pantheon，以及 Niri + Dux、Niri + Noctalia、Hyprland + Dux、Hyprland + Noctalia、Sway、Labwc、Wayfire 等不同工作流。
 
 部分 Wayland 桌面使用 [Catdot](./usage/catdot.md) Profile 管理用户配置。Catdot 会区分发行版管理的配置和一次性种子文件，并在覆盖用户配置前创建备份。
 
@@ -49,11 +49,11 @@ CatOS 软件仓库提供 **CatOS Hello** 和 **Shelly** 两个图形入口：
 - [CatOS Hello](./usage/hello.md)：根据 Live 环境或已安装系统提供安装、桌面 Profile 预览、镜像源和系统维护入口；
 - [Shelly](./usage/shelly.md)：管理仓库、AUR 等软件来源，并提供图形化的软件安装与更新操作。
 
-这些工具随滚动更新持续改进，安装介质中预装的版本可能早于当前 CatOS 软件仓库版本。有关近期变化，参阅 [2026 年 10 月更新日志](/news/2026-10-20-rolling)。
+这些工具随滚动更新持续改进，安装介质中预装的版本可能早于当前 CatOS 软件仓库版本。有关本次镜像的变化，参阅 [2026.11.12 更新日志](/news/2026-11-12-release)。
 
 ## 启动链与 Secure Boot
 
-CatOS 2026.08.05 的发布镜像支持 UEFI Secure Boot。安装器在 Secure Boot 环境中可以为受支持的启动方式建立安装后签名链，并由 `catos-secureboot` 继续维护内核、外部模块和 EFI 启动文件的签名状态。
+CatOS 安装镜像支持 UEFI Secure Boot。安装器在 Secure Boot 环境中可以为受支持的启动方式建立安装后签名链，并由 `catos-secureboot` 继续维护内核、外部模块和 EFI 启动文件的签名状态。
 
 在线安装当前提供 GRUB、Limine、rEFInd、systemd-boot、UKI 和 EFI Stub 六种启动方式；其中 GRUB、Limine、systemd-boot 和 UKI 支持 CatOS 的自动 Secure Boot 集成。
 

@@ -8,7 +8,7 @@ description: 检查硬件、验证镜像，并使用 Ventoy、Rufus、Etcher 或
 
 ## 系统要求
 
-CatOS 2026.08.05 仅提供 `x86_64` 镜像，不支持 ARM、LoongArch 或 32 位 x86 处理器。
+CatOS 2026.11.12 仅提供 `x86_64` 镜像，不支持 ARM、LoongArch 或 32 位 x86 处理器。
 
 ### 最低配置
 
@@ -32,8 +32,8 @@ CatOS 2026.08.05 仅提供 `x86_64` 镜像，不支持 ARM、LoongArch 或 32 �
 前往[下载页面](/docs/download)选择普通版或 NVIDIA 版。下载后必须核对 SHA-256：
 
 ```bash
-sha256sum catos-2026.08.05-x86_64.iso
-sha256sum catos-for-nvidia-2026.08.05-x86_64.iso
+sha256sum catos-2026.11.12-x86_64.iso
+sha256sum catos-for-nvidia-2026.11.12-x86_64.iso
 ```
 
 校验结果必须与下载页面完全一致。校验失败时不要继续写入或安装。
@@ -99,7 +99,7 @@ lsblk -o NAME,SIZE,MODEL,TRAN,MOUNTPOINTS
 
 :::tip Ventoy 无法启动时
 
-CatOS 2026.08.05 镜像本身支持 UEFI Secure Boot，但 Ventoy 还包含自己的启动链和密钥注册流程。若 Ventoy 在 Secure Boot 环境下无法启动 CatOS，优先尝试 Rufus、Etcher 或 ISO Image Writer 直接写入；排查时再考虑临时关闭 Secure Boot。
+CatOS 镜像本身支持 UEFI Secure Boot，但 Ventoy 还包含自己的启动链和密钥注册流程。若 Ventoy 在 Secure Boot 环境下无法启动 CatOS，优先尝试 Rufus、Etcher 或 ISO Image Writer 直接写入；排查时再考虑临时关闭 Secure Boot。
 
 :::
 
@@ -169,7 +169,7 @@ sudo dnf install isoimagewriter
 仅在能够准确识别块设备时使用：
 
 ```bash
-sudo dd if=catos-2026.08.05-x86_64.iso of=/dev/sdX bs=4M status=progress oflag=sync
+sudo dd if=catos-2026.11.12-x86_64.iso of=/dev/sdX bs=4M status=progress oflag=sync
 ```
 
 NVIDIA 镜像请替换输入文件名。

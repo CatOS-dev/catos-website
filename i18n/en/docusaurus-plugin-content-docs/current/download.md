@@ -1,18 +1,18 @@
 ---
 sidebar_position: 3
 title: Download
-description: Download CatOS 2026.08.05 images while retaining CatOS 2026.07.19 downloads and SHA-256 checksums.
+description: Download CatOS 2026.11.12 standard and NVIDIA ISO images with mirrors and SHA-256 checksums.
 ---
 
 # Download
 
-CatOS is distributed as an ISO image. The current release is **CatOS 2026.08.05**, available as a standard image and an NVIDIA image. CatOS 2026.07.19 remains available further down this page.
+CatOS is distributed as an ISO image. The current release is **CatOS 2026.11.12**, available as a standard image and an NVIDIA image. Previous releases remain available further down this page.
 
 After downloading, verify both the filename and the SHA-256 checksum.
 
 :::tip Already running CatOS?
 
-CatOS is a rolling release. You do not need to download a new ISO to receive regular package improvements. See the [October 2026 rolling changelog](/en/news/2026-10-20-rolling) for recent repository updates. The image versions and checksums on this page change only when new public images are actually released.
+CatOS is a rolling release. Existing users can receive regular package updates without reinstalling. See the [CatOS 2026.11.12 release notes](/en/news/2026-11-12-release) for changes in this release.
 
 :::
 
@@ -48,7 +48,52 @@ On Windows, open Device Manager and inspect Display adapters. On a hybrid-graphi
 
 Driver packages and support status differ between NVIDIA architectures. See the [ArchWiki NVIDIA page](https://wiki.archlinux.org/title/NVIDIA) for the full architecture and driver matrix and troubleshooting guidance.
 
-## CatOS 2026.08.05
+## CatOS 2026.11.12
+
+See the [CatOS 2026.11.12 release notes](/en/news/2026-11-12-release).
+
+### Standard image
+
+Filename:
+
+```text
+catos-2026.11.12-x86_64.iso
+```
+
+SHA-256:
+
+```text
+cac97535ad7af96297b0e31f64236e8b6027c38f97179c688584800a1edb8256
+```
+
+Download mirrors:
+
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-2026.11.12-x86_64.iso/download)
+- [Google Drive](https://drive.google.com/file/d/1accHaqtnAFLOnCqI3_QMcJDFn7dfoelq/view?usp=drive_link)
+- [MEGA](https://mega.nz/file/YRhTFAhL#SHSO1m7KnSro0499IPIngz9622bGLeau8lZO21KYArY)
+- [Baidu Netdisk (code: 6s9q)](https://pan.baidu.com/s/1-ZnGM_x-RAy8fOMZGneC7A?pwd=6s9q)
+
+### NVIDIA image
+
+Filename:
+
+```text
+catos-for-nvidia-2026.11.12-x86_64.iso
+```
+
+SHA-256:
+
+```text
+1a6aec3dc365be7d7a86f7a338810b49063dc53602972cacb54465ace0502254
+```
+
+Download mirrors:
+
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-for-nvidia-2026.11.12-x86_64.iso/download)
+- [MEGA](https://mega.nz/file/cFQDERAL#9Ik-214wB8ApZNywr5yMhhNwBjJTg3Hg5IiIJE5xcqQ)
+- [Baidu Netdisk (code: 65ds)](https://pan.baidu.com/s/1p4b6zHruedxWKsC95zlbMw?pwd=65ds)
+
+## Previous release: CatOS 2026.08.05
 
 See the [CatOS 2026.08.05 release notes](/en/news/2026-08-05-release) for the main changes in this release.
 
@@ -141,6 +186,8 @@ Download mirrors:
 On Linux, run:
 
 ```bash
+sha256sum catos-2026.11.12-x86_64.iso
+sha256sum catos-for-nvidia-2026.11.12-x86_64.iso
 sha256sum catos-2026.08.05-x86_64.iso
 sha256sum catos-for-nvidia-2026.08.05-x86_64.iso
 sha256sum catos-2026.07.19-x86_64.iso

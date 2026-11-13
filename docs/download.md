@@ -1,18 +1,18 @@
 ---
 sidebar_position: 3
 title: 下载
-description: 下载 CatOS 2026.08.05 系统镜像，并保留 CatOS 2026.07.19 历史版本下载与 SHA-256 校验信息。
+description: 下载 CatOS 2026.11.12 普通版与 NVIDIA 版镜像，查看下载渠道及 SHA-256 校验值。
 ---
 
 # 下载
 
-CatOS 以 ISO 镜像文件的方式分发。当前发布版本为 **CatOS 2026.08.05**，提供普通版和 NVIDIA 版两个镜像。CatOS 2026.07.19 的下载信息继续保留在本页下方。
+CatOS 以 ISO 镜像文件的方式分发。当前发布版本为 **CatOS 2026.11.12**，提供普通版和 NVIDIA 版两个镜像。旧版本的下载信息保留在本页下方。
 
 下载完成后，请务必核对文件名与 SHA-256 校验值。
 
 :::tip 已安装的 CatOS 用户
 
-CatOS 采用滚动更新，不必为了获得日常的软件包改进而重新下载 ISO。参阅 [2026 年 10 月滚动更新日志](/news/2026-10-20-rolling) 了解近期正式仓库的变化；本页的镜像版本与校验值只在新镜像实际发布后更新。
+CatOS 采用滚动更新，已安装的用户可以通过软件包更新获得日常改进，不必重新安装系统。查看 [2026.11.12 更新日志](/news/2026-11-12-release) 了解本次镜像的变化。
 
 :::
 
@@ -48,7 +48,52 @@ lspci -k -d ::03xx
 
 NVIDIA 在不同架构上使用的驱动包和支持状态并不完全相同。更完整的分代、驱动选择与故障排查说明请参考 [ArchWiki：NVIDIA](https://wiki.archlinux.org/title/NVIDIA)。
 
-## CatOS 2026.08.05
+## CatOS 2026.11.12
+
+本次更新的主要变化见 [CatOS 2026.11.12 更新日志](/news/2026-11-12-release)。
+
+### 普通版
+
+文件名：
+
+```text
+catos-2026.11.12-x86_64.iso
+```
+
+SHA-256：
+
+```text
+cac97535ad7af96297b0e31f64236e8b6027c38f97179c688584800a1edb8256
+```
+
+下载地址：
+
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-2026.11.12-x86_64.iso/download)
+- [Google Drive](https://drive.google.com/file/d/1accHaqtnAFLOnCqI3_QMcJDFn7dfoelq/view?usp=drive_link)
+- [MEGA](https://mega.nz/file/YRhTFAhL#SHSO1m7KnSro0499IPIngz9622bGLeau8lZO21KYArY)
+- [百度网盘（提取码：6s9q）](https://pan.baidu.com/s/1-ZnGM_x-RAy8fOMZGneC7A?pwd=6s9q)
+
+### NVIDIA 版
+
+文件名：
+
+```text
+catos-for-nvidia-2026.11.12-x86_64.iso
+```
+
+SHA-256：
+
+```text
+1a6aec3dc365be7d7a86f7a338810b49063dc53602972cacb54465ace0502254
+```
+
+下载地址：
+
+- [SourceForge](https://sourceforge.net/projects/catos/files/catos-for-nvidia-2026.11.12-x86_64.iso/download)
+- [MEGA](https://mega.nz/file/cFQDERAL#9Ik-214wB8ApZNywr5yMhhNwBjJTg3Hg5IiIJE5xcqQ)
+- [百度网盘（提取码：65ds）](https://pan.baidu.com/s/1p4b6zHruedxWKsC95zlbMw?pwd=65ds)
+
+## 历史版本：CatOS 2026.08.05
 
 本次版本的主要变化见 [CatOS 2026.08.05 更新日志](/news/2026-08-05-release)。
 
@@ -141,6 +186,8 @@ a1d2808c43e33054d6d2099c91c076a8d44c3d90aefc3f8bfa2845b1ec1d38e7
 Linux 下可使用：
 
 ```bash
+sha256sum catos-2026.11.12-x86_64.iso
+sha256sum catos-for-nvidia-2026.11.12-x86_64.iso
 sha256sum catos-2026.08.05-x86_64.iso
 sha256sum catos-for-nvidia-2026.08.05-x86_64.iso
 sha256sum catos-2026.07.19-x86_64.iso
